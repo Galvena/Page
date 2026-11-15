@@ -1,13 +1,21 @@
 # galvena/page
 
 The landing page for [Galvena](https://github.com/galvena/framework), the
-harness framework for Tauri 2.0. One self-contained `index.html`: no build
-step, no external requests, no dependencies. The two typefaces (Big Shoulders,
-IBM Plex Mono, both OFL) ride embedded as data URIs.
+harness framework for Tauri 2.0. Built with Vue 3, Vite, Tailwind CSS v4, and
+[shadcn-vue](https://www.shadcn-vue.com) (Reka UI primitives) — the same Vue
+side of the house as the starter's own frontend. The visual identity is the
+cyanotype drawing sheet: Prussian blue ground, pale drafting linework, oxide
+stamp red. The two typefaces (Big Shoulders, IBM Plex Mono, both OFL) ride in
+the bundle.
 
-## Run it
+## Develop it
 
-Open `index.html` in a browser. That is the whole story.
+```sh
+npm install
+npm run dev        # vite dev server
+npm run build      # vue-tsc + vite build → dist/
+npm run preview    # serve the build locally
+```
 
 ## Publish it
 
@@ -17,15 +25,19 @@ The page deploys to GitHub Pages as a project page, served from
 1. Push `main` to `github.com/galvena/page`.
 2. In the repository settings, set **Pages → Source → GitHub Actions**.
 
-The bundled workflow (`.github/workflows/pages.yml`) uploads the repository
-root and deploys on every push to `main`. All asset references in the page
-are relative, so the `/page/` subpath works untouched.
+The bundled workflow (`.github/workflows/pages.yml`) installs, builds, and
+deploys `dist/` on every push to `main`. Vite's `base` is `"./"`, so all
+asset URLs stay relative and the `/page/` subpath works untouched.
 
 ## Editing notes
 
+- The theme lives in `src/index.css`: shadcn tokens (`--background`,
+  `--primary`, `--border`, …) mapped through `@theme inline`, plus the
+  drawing-sheet extras (oxide reds, paper, code-well). The closing section
+  flips to drafting bond inside a `.paper-scope` wrapper.
+- One section per file under `src/sections/`; the shadcn components
+  (`Button`, `Tabs`, `Table`) are the owned copies under
+  `src/components/ui/`, extendable with `npx shadcn-vue add`.
 - Copy follows the project's house voice: plain, exact, no em dashes, no
   invented numbers. Every claim traces to the framework or starter
   repositories.
-- Tokens live on `:root` at the top of the `<style>` block; the palette is
-  the cyanotype drawing sheet (Prussian blue ground, pale linework, oxide
-  stamp red).

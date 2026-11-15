@@ -1,0 +1,425 @@
+@import "tailwindcss";
+
+/* ============ fonts (OFL; hosted by the bundle, works offline) ============ */
+@font-face {
+  font-family: "Big Shoulders";
+  src: url("./assets/fonts/display.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./assets/fonts/mono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============ tokens · the cyanotype drawing sheet ============ */
+:root {
+  --background: #0e2340; /* prussian ground */
+  --foreground: #e9f1fa; /* linework white */
+  --card: #14304f;
+  --card-foreground: #e9f1fa;
+  --primary: #c04430; /* stamp red, carries white text */
+  --primary-foreground: #ffffff;
+  --secondary: #1a3a60;
+  --secondary-foreground: #e9f1fa;
+  --muted: #14304f;
+  --muted-foreground: #8fa9cb;
+  --accent: #1a3a60;
+  --accent-foreground: #e9f1fa;
+  --destructive: #c04430;
+  --border: rgba(233, 241, 250, 0.26);
+  --input: rgba(233, 241, 250, 0.26);
+  --ring: #e8876b;
+  --radius: 0.1875rem;
+
+  /* drawing-sheet extras */
+  --ink-2: #bdd0e6;
+  --ink-3: #8fa9cb;
+  --bg-1: #14304f;
+  --bg-2: #1a3a60;
+  --well: #0a1b36;
+  --oxide: #c04430;
+  --oxide-hi: #e8876b;
+  --oxide-deep: #9a3520;
+  --code-str: #9fc3ea;
+  --ink-a16: rgba(233, 241, 250, 0.016);
+  --ink-a05: rgba(233, 241, 250, 0.05);
+  --ink-a07: rgba(233, 241, 250, 0.07);
+  --paper: #f1ede2; /* the fresh sheet */
+  --paper-ink: #1c2a3c;
+  --paper-muted: #5a6b80;
+}
+
+.paper-scope {
+  /* the closing renders on drafting bond: tokens flip inside it */
+  --background: var(--paper);
+  --foreground: var(--paper-ink);
+  --primary: var(--paper-ink);
+  --primary-foreground: var(--paper);
+  --muted-foreground: #3e4e63;
+  --border: rgba(28, 42, 60, 0.25);
+  --ring: var(--oxide-deep);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-well: var(--well);
+  --color-oxide: var(--oxide);
+  --color-oxide-hi: var(--oxide-hi);
+  --color-oxide-deep: var(--oxide-deep);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-paper-muted: var(--paper-muted);
+  --font-display: "Big Shoulders", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --font-sans: "Segoe UI", -apple-system, "Helvetica Neue", "Liberation Sans",
+    Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", "SF Mono", Menlo,
+    Consolas, monospace;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+}
+
+/* ============ base ============ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 16.5px;
+    line-height: 1.65;
+    background-image:
+      linear-gradient(rgba(233, 241, 250, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(233, 241, 250, 0.028) 1px, transparent 1px);
+    background-size: 88px 88px;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ============ the drawing-sheet identity ============ */
+.sheet {
+  position: relative;
+  margin: clamp(10px, 1.8vw, 22px);
+  border: 1px solid var(--border);
+  min-height: calc(100vh - 2 * clamp(10px, 1.8vw, 22px));
+}
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(233, 241, 250, 0.11);
+  pointer-events: none;
+}
+.tick {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+  z-index: 2;
+}
+.tick::before,
+.tick::after {
+  content: "";
+  position: absolute;
+  background: var(--ink-3);
+}
+.tick::before {
+  width: 15px;
+  height: 1.5px;
+}
+.tick::after {
+  width: 1.5px;
+  height: 15px;
+}
+.tick-tl { top: -8px; left: -8px; }
+.tick-tr { top: -8px; right: -8px; }
+.tick-bl { bottom: -8px; left: -8px; }
+.tick-br { bottom: -8px; right: -8px; }
+.tick-tl::before, .tick-tl::after { top: 7px; left: 0; }
+.tick-tr::before { top: 7px; right: 0; }
+.tick-tr::after { top: 0; right: 7px; }
+.tick-bl::before { bottom: 7px; left: 0; }
+.tick-bl::after { bottom: 0; left: 7px; }
+.tick-br::before { bottom: 7px; right: 0; }
+.tick-br::after { bottom: 0; right: 7px; }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.eyebrow::after {
+  content: "";
+  flex: 0 0 64px;
+  height: 1px;
+  background: var(--border);
+}
+.eyebrow b {
+  color: var(--oxide-hi);
+  font-weight: 400;
+}
+
+/* policy chain */
+.chain li::after {
+  content: "→";
+  color: var(--oxide-hi);
+  margin-left: 12px;
+}
+.chain li:last-child::after {
+  content: "";
+}
+
+/* title block, terminal, ownership, footer blocks */
+.tblock td,
+.term,
+.ownblock,
+.footblock {
+  border-color: var(--border);
+}
+.blocklabel {
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.blocklabel b {
+  color: var(--oxide-hi);
+  font-weight: 400;
+}
+.kv td {
+  font-family: var(--font-mono);
+  border-bottom: 1px solid rgba(233, 241, 250, 0.11);
+  vertical-align: top;
+}
+.kv tr:last-child td {
+  border-bottom: none;
+}
+.kv td.k {
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.kv td.v {
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+}
+.kv td.v small {
+  display: block;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
+pre.well {
+  background: var(--well);
+  border: 1px solid rgba(233, 241, 250, 0.11);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  color: var(--ink-2);
+}
+pre.well .cm { color: var(--ink-3); }
+pre.well .kw { color: var(--oxide-hi); }
+pre.well .st { color: var(--code-str); }
+pre.well .pr { color: var(--oxide-hi); }
+pre.well .p { color: var(--oxide-hi); }
+
+.ownblock li::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--ink-3);
+  flex: none;
+  transform: translateY(-4px);
+}
+
+/* sponsor wall */
+.slot {
+  border: 1px dashed rgba(233, 241, 250, 0.38);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 7px,
+    rgba(233, 241, 250, 0.05) 7px 8px
+  );
+  position: relative;
+}
+.slot i {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.slot-platinum { height: 56px; flex: 1 1 300px; max-width: 420px; }
+.slot-gold { height: 42px; flex: 1 1 160px; max-width: 200px; }
+
+/* general arrangement drawing */
+.diag .ln { stroke: rgba(233, 241, 250, 0.5); fill: none; stroke-width: 1.3; }
+.diag .ln2 { stroke: rgba(233, 241, 250, 0.75); fill: none; stroke-width: 1.3; }
+.diag .boxf { fill: rgba(233, 241, 250, 0.035); }
+.diag .box2f { fill: rgba(233, 241, 250, 0.06); }
+.diag .dash { stroke-dasharray: 6 5; }
+.diag .red { stroke: var(--oxide-hi); }
+.diag text {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  fill: var(--foreground);
+  letter-spacing: 0.07em;
+}
+.diag .sub { font-size: 10.5px; fill: var(--ink-3); letter-spacing: 0.05em; }
+.diag .tiny { font-size: 10px; fill: var(--ink-3); letter-spacing: 0.1em; }
+.diag .tred { fill: var(--oxide-hi); }
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes rise { to { opacity: 1; } }
+.ga-fig .anim { opacity: 1; }
+.ga-fig.drawn .anim {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.9s ease forwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+.ga-fig.drawn .pop {
+  opacity: 0;
+  animation: rise 0.5s ease forwards;
+  animation-delay: calc(1s + var(--i, 0) * 60ms);
+}
+
+/* the three faces */
+.tabbtn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 9px 16px 8px;
+  transition: color 120ms ease;
+}
+.tabbtn[data-state="active"] {
+  color: var(--foreground);
+  background: var(--well);
+  box-shadow: inset 0 2px 0 var(--oxide);
+}
+.mchrome-i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.msess.on {
+  color: var(--foreground);
+  background: var(--ink-a07);
+  box-shadow: inset 2px 0 0 var(--oxide-hi);
+}
+.minput {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  margin-top: auto;
+}
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 13px;
+  background: var(--ink-3);
+  vertical-align: -2px;
+}
+
+/* the stamp */
+@keyframes stampin {
+  0% { opacity: 0; transform: rotate(-6deg) scale(1.5); }
+  60% { opacity: 1; transform: rotate(-6deg) scale(0.96); }
+  100% { opacity: 1; transform: rotate(-6deg) scale(1); }
+}
+.stampwrap .stamp {
+  display: inline-block;
+  transform: rotate(-6deg);
+  border: 3px double var(--oxide-deep);
+  color: var(--oxide-deep);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.5;
+  user-select: none;
+}
+.stampwrap .stamp small {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  margin-top: 4px;
+}
+.stampwrap.stamped .stamp {
+  animation: stampin 0.45s ease-out forwards;
+}
+
+/* skip link */
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 50;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  transition: top 120ms ease;
+}
+.skip:focus { top: 12px; }
+
+/* motion discipline */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ga-fig.drawn .anim {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+  .ga-fig.drawn .pop { animation: none; opacity: 1; }
+  .stampwrap.stamped .stamp { animation: none; }
+}
