@@ -9,6 +9,9 @@ import StarterSection from "@/sections/StarterSection.vue";
 import RevisionsSection from "@/sections/RevisionsSection.vue";
 import ClosingSection from "@/sections/ClosingSection.vue";
 import SiteFooter from "@/sections/SiteFooter.vue";
+import { useLenis } from "@/composables/useLenis";
+
+useLenis();
 </script>
 
 <template>

@@ -1,28 +1,21 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useReveal } from "@/composables/useReveal";
+import SectionShell from "@/components/site/SectionShell.vue";
+import SectionHead from "@/components/site/SectionHead.vue";
 
 const fig = ref<HTMLElement | null>(null);
 useReveal(fig, "drawn");
 </script>
 
 <template>
-  <section id="ga" class="pt-0">
-    <div class="mx-auto max-w-[1180px] px-[clamp(20px,4vw,44px)]">
-      <div class="mb-[clamp(36px,5vw,60px)]">
-        <p class="eyebrow"><b>Sheet GA-1</b> · general arrangement</p>
-        <h2
-          class="mt-4 max-w-[24ch] font-display text-[clamp(34px,4.2vw,52px)] leading-[1.02] font-semibold tracking-[-0.01em]"
-        >
-          One engine. Everything else is a client.
-        </h2>
-        <p class="mt-4 max-w-[62ch] text-[17px] text-ink-2">
-          The engine serves HTTP and WebSocket on localhost, and that is the
-          only surface it has. Pages, terminals and desktop shells are all
-          clients of the same bus. Policy arrives signed from upstream and is
-          enforced on your machine.
-        </p>
-      </div>
+  <SectionShell id="ga">
+      <SectionHead
+        mark="Sheet GA-1"
+        label="general arrangement"
+        title="One engine. Everything else is a client."
+        lede="The engine serves HTTP and WebSocket on localhost, and that is the only surface it has. Pages, terminals and desktop shells are all clients of the same bus. Policy arrives signed from upstream and is enforced on your machine."
+      />
 
       <div class="overflow-x-auto rounded-sm border border-border">
         <div class="min-w-[880px] p-[clamp(16px,3vw,36px)]">
@@ -196,6 +189,5 @@ useReveal(fig, "drawn");
           </figure>
         </div>
       </div>
-    </div>
-  </section>
+  </SectionShell>
 </template>

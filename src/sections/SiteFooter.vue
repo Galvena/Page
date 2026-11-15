@@ -1,9 +1,18 @@
 <script setup lang="ts">
+import SheetBlock from "@/components/site/SheetBlock.vue";
+import KvTable from "@/components/site/KvTable.vue";
+
 const links = [
   { href: "https://github.com/galvena/framework", label: "Framework" },
   { href: "https://github.com/galvena/galvena", label: "Starter" },
   { href: "#sponsors", label: "Sponsors" },
   { href: "https://github.com/galvena/framework/blob/1.x/LICENSE", label: "MIT license" },
+];
+const rows = [
+  { k: "Drawn by", v: "the roadmap, in epochs" },
+  { k: "Checked by", v: "fmt · clippy · test · smoke, every PR" },
+  { k: "Approved by", v: "you, at first clone" },
+  { k: "Sources", v: "framework · galvena · docs/architecture.md" },
 ];
 </script>
 
@@ -13,31 +22,9 @@ const links = [
       class="mx-auto max-w-[1180px] px-[clamp(20px,4vw,44px)] pt-[clamp(36px,5vw,56px)] pb-[clamp(30px,4vw,44px)]"
     >
       <div class="grid grid-cols-1 gap-[clamp(28px,4vw,56px)] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-        <div class="rounded-sm border border-border">
-          <header class="blocklabel !text-[10px]">
-            <span>Title block · sheet GA-1000</span>
-          </header>
-          <table class="kv w-full border-collapse">
-            <tbody>
-              <tr>
-                <td class="k w-[34%] px-3.5 pt-2.5 pb-2 text-[9.5px]">Drawn by</td>
-                <td class="px-3.5 py-2 text-[11.5px]">the roadmap, in epochs</td>
-              </tr>
-              <tr>
-                <td class="k px-3.5 pt-2.5 pb-2 text-[9.5px]">Checked by</td>
-                <td class="px-3.5 py-2 text-[11.5px]">fmt · clippy · test · smoke, every PR</td>
-              </tr>
-              <tr>
-                <td class="k px-3.5 pt-2.5 pb-2 text-[9.5px]">Approved by</td>
-                <td class="px-3.5 py-2 text-[11.5px]">you, at first clone</td>
-              </tr>
-              <tr>
-                <td class="k px-3.5 pt-2.5 pb-2 text-[9.5px]">Sources</td>
-                <td class="px-3.5 py-2 text-[11.5px]">framework · galvena · docs/architecture.md</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <SheetBlock header="Title block · sheet GA-1000" class="w-fit lg:w-full">
+          <KvTable compact :rows="rows" k-width="34%" />
+        </SheetBlock>
         <nav class="mt-1 flex flex-wrap content-start gap-x-[26px] gap-y-3" aria-label="Footer">
           <a
             v-for="link in links"

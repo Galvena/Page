@@ -63,6 +63,9 @@
   --muted-foreground: #3e4e63;
   --border: rgba(28, 42, 60, 0.25);
   --ring: var(--oxide-deep);
+  --ink-2: #3e4e63;
+  --ink-3: #5a6b80;
+  --oxide-hi: var(--oxide-deep);
 }
 
 @theme inline {
@@ -115,6 +118,10 @@
       linear-gradient(90deg, rgba(233, 241, 250, 0.028) 1px, transparent 1px);
     background-size: 88px 88px;
     text-rendering: optimizeLegibility;
+  }
+  /* native anchor jumps also clear the sticky header (lenis uses its own offset) */
+  section[id] {
+    scroll-margin-top: calc(var(--header-h, 72px) + 8px);
   }
 }
 
