@@ -101,51 +101,52 @@ useReveal(fig, "drawn");
               </g>
 
               <!-- the provider seam · the connector -->
-          <rect class="ln2 anim" pathLength="1" style="--i: 16" x="801" y="170" width="44" height="302" />
-          <text class="pop" transform="rotate(-90 823 321)" x="823" y="321" text-anchor="middle">PROVIDER SEAM · ONE TRAIT</text>
+          <rect class="ln2 anim" pathLength="1" style="--i: 16" x="860" y="170" width="80" height="270" />
+          <text class="pop" transform="rotate(-90 900 305)" x="900" y="305" text-anchor="middle">PROVIDER SEAM · ONE TRAIT</text>
+          <line class="ln anim" pathLength="1" style="--i: 16" x1="800" y1="305" x2="860" y2="305" />
 
           <!-- providers · behind the seam -->
-          <text class="tiny pop" x="957" y="158" text-anchor="middle">PROVIDERS · BEHIND THE SEAM</text>
+          <text class="tiny pop" x="1055" y="158" text-anchor="middle">PROVIDERS · BEHIND THE SEAM</text>
           <g class="ln">
             <line
-              v-for="mid in [191, 243, 295, 347, 399, 451]"
+              v-for="mid in [208, 251, 292, 335, 377, 418]"
               :key="mid"
               class="anim"
               pathLength="1"
               style="--i: 17"
-              x1="845"
+              x1="940"
               :y1="mid"
-              x2="861"
+              x2="970"
               :y2="mid"
             />
           </g>
           <g>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="170" width="192" height="42" />
-            <text class="pop" x="873" y="187">ANTHROPIC</text>
-            <text class="sub pop" x="873" y="203">cloud or compatible</text>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="222" width="192" height="42" />
-            <text class="pop" x="873" y="239">OPENAI · RESPONSES</text>
-            <text class="sub pop" x="873" y="255">Chat + Responses API</text>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="274" width="192" height="42" />
-            <text class="pop" x="873" y="291">GEMINI</text>
-            <text class="sub pop" x="873" y="307">the Gemini wire</text>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="326" width="192" height="42" />
-            <text class="pop" x="873" y="343">LOCAL SERVERS</text>
-            <text class="sub pop" x="873" y="359">Ollama · llama.cpp · MLX</text>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="378" width="192" height="42" />
-            <text class="pop" x="873" y="395">SELF-SERVER</text>
-            <text class="sub pop" x="873" y="411">any compatible base_url</text>
-            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="430" width="192" height="42" />
-            <text class="pop" x="873" y="447">STUB</text>
-            <text class="sub pop" x="873" y="463">scripted default, offline</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="190" width="170" height="37" />
+            <text class="pop" x="982" y="206">ANTHROPIC</text>
+            <text class="sub pop" x="982" y="220">cloud or compatible</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="232" width="170" height="37" />
+            <text class="pop" x="982" y="248">OPENAI · RESPONSES</text>
+            <text class="sub pop" x="982" y="262">Chat + Responses API</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="274" width="170" height="37" />
+            <text class="pop" x="982" y="290">GEMINI</text>
+            <text class="sub pop" x="982" y="304">the Gemini wire</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="316" width="170" height="37" />
+            <text class="pop" x="982" y="332">LOCAL SERVERS</text>
+            <text class="sub pop" x="982" y="346">Ollama · llama.cpp · MLX</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="358" width="170" height="37" />
+            <text class="pop" x="982" y="374">SELF-SERVER</text>
+            <text class="sub pop" x="982" y="388">any compatible base_url</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="970" y="400" width="170" height="37" />
+            <text class="pop" x="982" y="416">STUB</text>
+            <text class="sub pop" x="982" y="430">scripted default, offline</text>
           </g>
 
           <!-- MCP · off the bus, tools both directions -->
           <text class="tiny pop" x="700" y="122">tools, both directions</text>
-          <polyline class="ln anim" pathLength="1" style="--i: 18" points="620,212 620,130 900,130 900,112" fill="none" />
-          <rect class="ln anim" pathLength="1" style="--i: 19" x="861" y="56" width="192" height="56" />
-          <text class="pop" x="873" y="76">MCP</text>
-          <text class="sub pop" x="873" y="94">client · server · proxy</text>
+          <polyline class="ln anim" pathLength="1" style="--i: 18" points="620,212 620,130 1055,130 1055,108" fill="none" />
+          <rect class="ln anim" pathLength="1" style="--i: 19" x="970" y="56" width="170" height="52" />
+          <text class="pop" x="982" y="76">MCP</text>
+          <text class="sub pop" x="982" y="94">client · server · proxy</text>
 
           <!-- storage -->
               <text class="tiny pop" x="420" y="466">STORAGE · LOCAL FIRST</text>
