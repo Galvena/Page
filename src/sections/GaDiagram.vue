@@ -18,11 +18,11 @@ useReveal(fig, "drawn");
       />
 
       <div class="overflow-x-auto rounded-sm border border-border">
-        <div class="min-w-[880px] p-[clamp(16px,3vw,36px)]">
+        <div class="min-w-[1020px] p-[clamp(16px,3vw,36px)]">
           <figure ref="fig" class="ga-fig m-0">
             <svg
               class="diag"
-              viewBox="0 0 1040 648"
+              viewBox="0 0 1180 648"
               role="img"
               aria-labelledby="gatitle gadesc"
             >
@@ -32,8 +32,7 @@ useReveal(fig, "drawn");
                 shell. They speak HTTP and WebSocket through the bridge to the
                 engine on 127.0.0.1:8317. The engine holds the command bus, an
                 event-sourced session tree, the agent runtime and trait seams.
-                Seams reach model providers: Anthropic, Ollama, llama.cpp and
-                MLX, plus MCP for tools in both directions. Storage sits below:
+                Seams hand model traffic to the provider seam, one trait where SDK and wire types are normalized, which reaches the providers: Anthropic, OpenAI and Responses, Gemini, local servers and any compatible self-server, with the scripted stub answering offline. MCP hangs off the bus for tools in both directions. Storage sits below:
                 libSQL planes and the vault on the OS keychain. The
                 implementor's cloud hands down signed policy that is enforced
                 locally. A dimension ruler names the ten crates.
@@ -41,7 +40,7 @@ useReveal(fig, "drawn");
 
               <!-- sheet notes -->
               <text class="tiny pop" x="56" y="30">GALVENA · GENERAL ARRANGEMENT</text>
-              <text class="tiny pop" x="1020" y="30" text-anchor="end">DO NOT SCALE DRAWING · CHECK ROADMAP</text>
+              <text class="tiny pop" x="1140" y="30" text-anchor="end">DO NOT SCALE DRAWING · CHECK ROADMAP</text>
 
               <!-- implementor cloud -->
               <text class="tiny pop" x="580" y="42" text-anchor="middle">THE POLICY CHAIN, UPSTREAM</text>
@@ -101,35 +100,54 @@ useReveal(fig, "drawn");
                 <line class="anim" pathLength="1" style="--i: 15" x1="610" y1="270" x2="610" y2="376" />
               </g>
 
-              <!-- providers -->
-              <text class="tiny pop" x="936" y="182" text-anchor="middle">MODEL PROVIDERS</text>
-              <g class="ln">
-                <line class="anim" pathLength="1" style="--i: 16" x1="800" y1="215" x2="846" y2="215" />
-                <line class="anim" pathLength="1" style="--i: 16" x1="800" y1="281" x2="846" y2="281" />
-                <line class="anim" pathLength="1" style="--i: 16" x1="800" y1="347" x2="846" y2="347" />
-                <line class="anim" pathLength="1" style="--i: 16" x1="800" y1="413" x2="846" y2="413" />
-              </g>
-              <rect class="ln anim" pathLength="1" style="--i: 17" x="846" y="192" width="180" height="46" />
-              <text class="pop" x="858" y="212">ANTHROPIC</text>
-              <text class="sub pop" x="858" y="229">Messages, or compatible</text>
-              <rect class="ln anim" pathLength="1" style="--i: 17" x="846" y="258" width="180" height="46" />
-              <text class="pop" x="858" y="278">OPENAI · RESPONSES</text>
-              <text class="sub pop" x="858" y="295">Chat Completions servers</text>
-              <rect class="ln anim" pathLength="1" style="--i: 17" x="846" y="324" width="180" height="46" />
-              <text class="pop" x="858" y="344">OLLAMA · LLAMA.CPP</text>
-              <text class="sub pop" x="858" y="361">local, by base_url</text>
-              <rect class="ln anim" pathLength="1" style="--i: 17" x="846" y="390" width="180" height="46" />
-              <text class="pop" x="858" y="410">MLX</text>
-              <text class="sub pop" x="858" y="427">local, Apple silicon</text>
+              <!-- the provider seam · the connector -->
+          <rect class="ln2 anim" pathLength="1" style="--i: 16" x="801" y="170" width="44" height="302" />
+          <text class="pop" transform="rotate(-90 823 321)" x="823" y="321" text-anchor="middle">PROVIDER SEAM · ONE TRAIT</text>
 
-              <!-- MCP -->
-              <polyline class="ln anim" pathLength="1" style="--i: 18" points="784,397 822,397 822,484 846,484" fill="none" />
-              <rect class="ln anim" pathLength="1" style="--i: 19" x="846" y="458" width="180" height="50" />
-              <text class="pop" x="858" y="478">MCP</text>
-              <text class="sub pop" x="858" y="496">client · server · proxy</text>
-              <text class="tiny pop" x="936" y="443" text-anchor="middle">tools, both directions</text>
+          <!-- providers · behind the seam -->
+          <text class="tiny pop" x="957" y="158" text-anchor="middle">PROVIDERS · BEHIND THE SEAM</text>
+          <g class="ln">
+            <line
+              v-for="mid in [191, 243, 295, 347, 399, 451]"
+              :key="mid"
+              class="anim"
+              pathLength="1"
+              style="--i: 17"
+              x1="845"
+              :y1="mid"
+              x2="861"
+              :y2="mid"
+            />
+          </g>
+          <g>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="170" width="192" height="42" />
+            <text class="pop" x="873" y="187">ANTHROPIC</text>
+            <text class="sub pop" x="873" y="203">cloud or compatible</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="222" width="192" height="42" />
+            <text class="pop" x="873" y="239">OPENAI · RESPONSES</text>
+            <text class="sub pop" x="873" y="255">Chat + Responses API</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="274" width="192" height="42" />
+            <text class="pop" x="873" y="291">GEMINI</text>
+            <text class="sub pop" x="873" y="307">the Gemini wire</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="326" width="192" height="42" />
+            <text class="pop" x="873" y="343">LOCAL SERVERS</text>
+            <text class="sub pop" x="873" y="359">Ollama · llama.cpp · MLX</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="378" width="192" height="42" />
+            <text class="pop" x="873" y="395">SELF-SERVER</text>
+            <text class="sub pop" x="873" y="411">any compatible base_url</text>
+            <rect class="ln anim" pathLength="1" style="--i: 17" x="861" y="430" width="192" height="42" />
+            <text class="pop" x="873" y="447">STUB</text>
+            <text class="sub pop" x="873" y="463">scripted default, offline</text>
+          </g>
 
-              <!-- storage -->
+          <!-- MCP · off the bus, tools both directions -->
+          <text class="tiny pop" x="700" y="122">tools, both directions</text>
+          <polyline class="ln anim" pathLength="1" style="--i: 18" points="620,212 620,130 900,130 900,112" fill="none" />
+          <rect class="ln anim" pathLength="1" style="--i: 19" x="861" y="56" width="192" height="56" />
+          <text class="pop" x="873" y="76">MCP</text>
+          <text class="sub pop" x="873" y="94">client · server · proxy</text>
+
+          <!-- storage -->
               <text class="tiny pop" x="420" y="466">STORAGE · LOCAL FIRST</text>
               <rect class="ln dash anim" pathLength="1" style="--i: 20" x="420" y="472" width="380" height="76" />
               <g class="ln">
@@ -145,16 +163,16 @@ useReveal(fig, "drawn");
 
               <!-- dimension ruler · the ten crates -->
               <g class="ln">
-                <line class="anim" pathLength="1" style="--i: 23" x1="56" y1="596" x2="1020" y2="596" />
+                <line class="anim" pathLength="1" style="--i: 23" x1="56" y1="596" x2="1140" y2="596" />
                 <polyline class="anim" pathLength="1" style="--i: 23" points="56,596 66,592" fill="none" />
                 <polyline class="anim" pathLength="1" style="--i: 23" points="56,596 66,600" fill="none" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="1020,596 1010,592" fill="none" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="1020,596 1010,600" fill="none" />
+                <polyline class="anim" pathLength="1" style="--i: 23" points="1140,596 1130,592" fill="none" />
+                <polyline class="anim" pathLength="1" style="--i: 23" points="1140,596 1130,600" fill="none" />
               </g>
-              <text class="tiny pop" x="538" y="580" text-anchor="middle">TEN CRATES · ONE FRAME</text>
+              <text class="tiny pop" x="598" y="580" text-anchor="middle">TEN CRATES · ONE FRAME</text>
               <g class="ln">
                 <line
-                  v-for="x in [56, 152.4, 248.8, 345.2, 441.6, 538, 634.4, 730.8, 827.2, 923.6, 1020]"
+                  v-for="x in [56, 164.4, 272.8, 381.2, 489.6, 598, 706.4, 814.8, 923.2, 1031.6, 1140]"
                   :key="x"
                   class="anim"
                   pathLength="1"
@@ -172,7 +190,7 @@ useReveal(fig, "drawn");
                     'SKILLS', 'STORE', 'VAULT', 'STALKER', 'CLI',
                   ]"
                   :key="crate"
-                  :x="56 + 96.4 * 0.5 + 96.4 * ['KERNEL', 'ENGINE', 'BRIDGE', 'COMPAT', 'PROVIDERS', 'SKILLS', 'STORE', 'VAULT', 'STALKER', 'CLI'].indexOf(crate)"
+                  :x="56 + 108.4 * 0.5 + 108.4 * ['KERNEL', 'ENGINE', 'BRIDGE', 'COMPAT', 'PROVIDERS', 'SKILLS', 'STORE', 'VAULT', 'STALKER', 'CLI'].indexOf(crate)"
                   y="620"
                   text-anchor="middle"
                 >

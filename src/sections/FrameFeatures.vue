@@ -124,9 +124,9 @@ policy = <span class="st">"./policy.toml"</span> <span class="cm"># allow · den
               The stub provider answers offline on first run, and nothing
               phones home. A real model is one line of
               <code class="rounded-sm bg-[var(--ink-a07)] px-1 py-0.5 text-[0.92em] text-foreground">harness.toml</code>
-              away, pointed at a cloud or at your own box. Anthropic, OpenAI
-              and Responses drivers cover their compatible servers, so local
-              stacks ride the same seam.
+              away, pointed at a cloud or at your own box. Every driver,
+              Anthropic through Gemini to the local stacks, sits behind one
+              Provider trait; SDK and wire types never leak past it.
             </p>
           </div>
           <CodeWell><span class="cm"># "stub", the default, answers offline: no key, no network</span>
