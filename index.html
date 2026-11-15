@@ -376,42 +376,118 @@ pre.code .pr{color:var(--oxide-hi)}
 }
 .ownnote b{color:var(--oxide-hi);font-weight:400}
 
-/* ============ sponsors · the backing ============ */
-.sponsors{background:var(--ink-a16);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cloud{display:grid;gap:clamp(28px,4vw,40px);margin-bottom:clamp(32px,4vw,48px)}
-.tierrow{display:grid;gap:12px}
+/* ============ the backing · sponsors, noted up top ============ */
+.backing{padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(44px,6vw,72px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-a16)}
+.backing-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.backing h2{font-size:clamp(28px,3vw,38px);margin-top:14px}
+.backing .lede{margin-top:12px;font-size:15.5px}
+.backing .btn{margin-top:18px}
+.backing-wall{display:grid;gap:16px}
+.wallrow{display:grid;gap:8px}
 .tierlab{
-  font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-3);
 }
 .tierlab b{color:var(--oxide-hi);font-weight:400}
-.slots{display:flex;gap:14px;flex-wrap:wrap}
+.wallslots{display:flex;gap:12px;flex-wrap:wrap}
 .slot{
   border:1px dashed rgba(233,241,250,.38);border-radius:var(--r);
-  background:repeating-linear-gradient(45deg,transparent 0 7px,var(--ink-a05) 7px 8px);
+  background:repeating-linear-gradient(45deg,transparent 0 7px,rgba(233,241,250,.05) 7px 8px);
   position:relative;
 }
 .slot i{
-  position:absolute;right:10px;bottom:8px;font-style:normal;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  position:absolute;right:10px;bottom:7px;font-style:normal;
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-3);
 }
-.slot.platinum{height:104px;flex:1 1 320px;max-width:520px}
-.slot.gold{height:66px;flex:1 1 200px;max-width:260px}
-.contribs{
-  border:1px solid var(--line-2);border-radius:var(--r);
-  padding:18px 22px;display:flex;justify-content:space-between;
-  gap:16px;align-items:center;flex-wrap:wrap;
+.slot.platinum{height:56px;flex:1 1 300px;max-width:420px}
+.slot.gold{height:42px;flex:1 1 160px;max-width:200px}
+.wallnote{
+  border-top:1px solid var(--line);padding-top:12px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;
 }
-.contribs p{color:var(--ink-2);font-size:15px;max-width:52ch}
-.contribs a{
-  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+.wallnote p{color:var(--ink-3);font-size:13px;max-width:56ch}
+.wallnote a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--oxide-hi);text-decoration:none;border-bottom:1px solid var(--line-2);
   padding-bottom:2px;white-space:nowrap;
 }
-.contribs a:hover{border-bottom-color:var(--oxide-hi)}
-.sponsor-foot{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.sponsor-foot .note{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+.wallnote a:hover{border-bottom-color:var(--oxide-hi)}
+
+/* ============ faces · one session, three faces ============ */
+.tabstrip{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;
+  border:1px solid var(--line-2);border-bottom:none;border-radius:var(--r) var(--r) 0 0;
+  background:var(--bg-1);padding:10px 12px 0;
+}
+[role=tablist]{display:flex;gap:4px;flex-wrap:wrap}
+.tabbtn{
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);background:transparent;border:1px solid transparent;border-bottom:none;
+  border-radius:var(--r) var(--r) 0 0;padding:9px 16px 8px;cursor:pointer;
+  transition:color 120ms ease;
+}
+.tabbtn:hover{color:var(--ink-2)}
+.tabbtn[aria-selected=true]{
+  color:var(--ink);background:var(--well);border-color:var(--line-2);
+  box-shadow:inset 0 2px 0 var(--oxide);
+}
+.tabnote{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);padding-bottom:10px;
+}
+.faceframe{border:1px solid var(--line-2);border-radius:0 var(--r) var(--r) var(--r);background:var(--well);overflow:hidden}
+[role=tabpanel][hidden]{display:none}
+.facenote{
+  margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap;
+}
+.facenote b{color:var(--oxide-hi);font-weight:400}
+
+/* mock · the page */
+.mweb{max-width:820px;margin:0 auto;padding:clamp(16px,3vw,28px)}
+.mchrome{display:flex;align-items:center;gap:8px;background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r);padding:8px 12px}
+.mchrome i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.mchrome span{margin-left:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.05em}
+.mapp{
+  display:grid;grid-template-columns:170px minmax(0,1fr);
+  border:1px solid var(--line-2);border-top:none;border-radius:0 0 var(--r) var(--r);
+  overflow:hidden;min-height:232px;
+}
+.mside{border-right:1px solid var(--line);padding:10px;display:grid;gap:4px;align-content:start;background:var(--ink-a05)}
+.mside b{
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;padding:4px 0;
+}
+.msess{font-size:12px;color:var(--ink-3);padding:5px 8px;border-radius:2px}
+.msess.on{color:var(--ink);background:var(--ink-a07);box-shadow:inset 2px 0 0 var(--oxide-hi)}
+.mchat{display:flex;flex-direction:column;gap:10px;padding:14px}
+.mturn{max-width:56ch;font-size:13px;line-height:1.55;padding:9px 12px;border-radius:var(--r);border:1px solid var(--line)}
+.mturn b{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:4px;font-weight:400;
+}
+.mturn code{font-family:var(--mono);font-size:.92em;color:var(--ink)}
+.mturn.you{align-self:flex-end;background:var(--bg-2);border-color:var(--line-2)}
+.mturn.bot{align-self:flex-start;background:var(--bg)}
+.minput{
+  margin-top:auto;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+  border:1px dashed var(--line-2);border-radius:var(--r);padding:8px 12px;
+}
+
+/* mock · the TUI and the CLI */
+.facepad{padding:clamp(14px,2.5vw,22px)}
+.facepad pre{font-size:12px;line-height:1.6;color:var(--ink-2);overflow-x:auto}
+.facepad .p{color:var(--oxide-hi)}
+.cursor{display:inline-block;width:8px;height:13px;background:var(--ink-3);vertical-align:-2px}
+
+.fcard.wide.stack{display:flex;flex-direction:column;gap:16px}
+.facepad{display:grid;justify-items:center}
+
+/* duo · many lines, one call */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.duo figure{margin:0;display:grid;gap:8px;align-content:start}
+.duo figcaption{margin-top:0;font-size:10px}
 
 /* benefits table */
 .benefits{border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;margin-top:clamp(28px,4vw,40px)}
@@ -534,6 +610,8 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
   .closing-grid{grid-template-columns:minmax(0,1fr)}
   .stampwrap{justify-content:flex-start}
   .footgrid{grid-template-columns:minmax(0,1fr)}
+  .backing-grid{grid-template-columns:minmax(0,1fr)}
+  .duo{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
   .fgrid{grid-template-columns:minmax(0,1fr)}
@@ -543,6 +621,8 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
   .chain .note{flex-basis:100%}
   .benefits th:nth-child(2),.benefits td:nth-child(2){display:none}
   section{padding-top:clamp(52px,12vw,72px);padding-bottom:clamp(52px,12vw,72px)}
+  .mapp{grid-template-columns:minmax(0,1fr);min-height:200px}
+  .mside{display:none}
 }
 </style>
 </head>
@@ -560,6 +640,7 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
       </a>
       <nav class="sheetnav" aria-label="Sections">
         <a href="#ga">Architecture</a>
+        <a href="#faces">Three faces</a>
         <a href="#frame">The frame</a>
         <a href="#starter">The starter</a>
         <a href="#sponsors">Sponsors</a>
@@ -590,7 +671,7 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
         </div>
 
         <aside class="tblock" aria-label="Title block">
-          <header><span>Title block</span><b>Sheet 1 of 4</b></header>
+          <header><span>Title block</span><b>Sheet 1 of 5</b></header>
           <table>
             <tbody>
               <tr><td class="k">Drawing no</td><td class="v">GA-1000</td></tr>
@@ -613,6 +694,37 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
           <li>User</li>
         </ol>
         <span class="note">each level tightens what it inherits, never loosens</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ the backing · sponsors, noted up top ============ -->
+  <section class="backing" id="sponsors">
+    <div class="wrap backing-grid">
+      <div>
+        <p class="eyebrow"><b>The backing</b> · sponsors, noted first</p>
+        <h2>Sponsors.</h2>
+        <p class="lede">Galvena is MIT-licensed and free; sponsorship keeps it maintained and moving forward. Marks land on the repositories and the releases.</p>
+        <p class="ownnote">Sponsors are donors, not commitment for work.</p>
+        <a class="btn btn-ghost" href="https://github.com/sponsors/galvena" rel="noopener">Sponsor Galvena</a>
+      </div>
+      <div class="backing-wall">
+        <div class="wallrow">
+          <p class="tierlab"><b>Platinum</b> · one mark, the top of the README</p>
+          <div class="wallslots"><div class="slot platinum"><i>reserved</i></div></div>
+        </div>
+        <div class="wallrow">
+          <p class="tierlab"><b>Gold</b> · the sponsors list, every release</p>
+          <div class="wallslots">
+            <div class="slot gold"><i>reserved</i></div>
+            <div class="slot gold"><i>reserved</i></div>
+            <div class="slot gold"><i>reserved</i></div>
+          </div>
+        </div>
+        <div class="wallnote">
+          <p>Contributors need no tier: code, docs, or skills puts you among the contributors, forever.</p>
+          <a href="https://github.com/galvena/framework/graphs/contributors" rel="noopener">See the contributors</a>
+        </div>
       </div>
     </div>
   </section>
@@ -785,13 +897,73 @@ footer{border-top:1px solid var(--line-2);padding:clamp(36px,5vw,56px) 0 clamp(3
     </div>
   </section>
 
+  <!-- ============ faces · one session, three faces ============ -->
+  <section id="faces">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><b>Sheet GA-2</b> · detail · the detachment</p>
+        <h2>One session. Three faces.</h2>
+        <p class="lede">The same session surface answers a page in a browser, a TUI in a terminal, and the CLI at a prompt. All three ship with the starter, so build the one you need and keep the rest. Vibe-code it instead and every socket, reconnect, and replay is yours to own.</p>
+      </div>
+
+      <div class="tabstrip">
+        <div role="tablist" aria-label="Interface faces">
+          <button class="tabbtn" role="tab" id="tab-web" aria-controls="face-web" aria-selected="true">The page</button>
+          <button class="tabbtn" role="tab" id="tab-tui" aria-controls="face-tui" aria-selected="false" tabindex="-1">The TUI</button>
+          <button class="tabbtn" role="tab" id="tab-cli" aria-controls="face-cli" aria-selected="false" tabindex="-1">The CLI</button>
+        </div>
+        <span class="tabnote">same engine · same session · 127.0.0.1:8317</span>
+      </div>
+      <div class="faceframe">
+        <div role="tabpanel" id="face-web" aria-labelledby="tab-web">
+          <div class="mweb">
+            <div class="mchrome"><i></i><i></i><i></i><span>127.0.0.1:8317</span></div>
+            <div class="mapp">
+              <aside class="mside" aria-hidden="true">
+                <b>Sessions</b>
+                <span class="msess on">first light</span>
+                <span class="msess">roadmap sweep</span>
+                <span class="msess">flaky test hunt</span>
+              </aside>
+              <div class="mchat">
+                <div class="mturn you"><b>you</b>sketch the bridge in one line</div>
+                <div class="mturn bot"><b>galvena</b>One page, one import: <code>createClient("http://127.0.0.1:8317")</code> and the bus is yours.</div>
+                <div class="minput" aria-hidden="true">message the harness</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" id="face-tui" aria-labelledby="tab-tui" hidden>
+          <div class="facepad">
+<pre>+---- SESSIONS -----------+ +---- FIRST LIGHT -----------------------------+
+| > first light           | | you     sketch the bridge in one line        |
+|   roadmap sweep         | | galvena  one page, one import:               |
+|   flaky test hunt       | |          createClient("127.0.0.1:8317")      |
+|                         | |          and the bus is yours.               |
++-------------------------+ +----------------------------------------------+
+ ws: connected · 127.0.0.1:8317 · ? for help          galvena tui --serve</pre>
+          </div>
+        </div>
+        <div role="tabpanel" id="face-cli" aria-labelledby="tab-cli" hidden>
+          <div class="facepad">
+<pre><span class="p">$</span> galvena chat first-light "sketch the bridge in one line"
+galvena&gt; one page, one import: createClient("http://127.0.0.1:8317")
+         and the bus is yours.
+<span class="p">$</span> <span class="cursor" aria-hidden="true"></span></pre>
+          </div>
+        </div>
+      </div>
+      <p class="facenote"><b>one engine · one session tree</b> · the page imports client.mjs · the TUI rides the Rust client · the CLI is the binary itself</p>
+    </div>
+  </section>
+
   <!-- ============ the frame · features in code ============ -->
   <section class="features" id="frame">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow"><b>Sheet GA-2</b> · detail · what the frame carries</p>
+        <p class="eyebrow"><b>Sheet GA-3</b> · detail · what the frame carries</p>
         <h2>The frame, in code.</h2>
-        <p class="lede">Six decisions the framework makes so a harness does not have to. Every snippet runs against the real crates and the real config surface.</p>
+        <p class="lede">The decisions the framework makes so a harness does not have to, in the code you would otherwise write by hand. Every snippet runs against the real crates and the real config surface.</p>
       </div>
 
       <div class="fgrid">
@@ -859,6 +1031,32 @@ provider = <span class="st">"openai"</span>        <span class="cm"># or "anthro
 base_url = <span class="st">"http://127.0.0.1:11434"</span>
                              <span class="cm"># Ollama · vLLM · LM Studio · OpenRouter</span></pre>
         </article>
+
+        <article class="fcard wide stack">
+          <div>
+            <p class="callout"><b>A7</b> · the shortcut</p>
+            <h3>The socket dance, one call.</h3>
+            <p>This is where vibe-coding a harness bites: every face re-rolls the WebSocket by hand. Hello frames, parse guards, reconnects, replay after a gap. The bridge folds the dance into one call, and when a stream goes quiet the engine replays and you re-fetch.</p>
+          </div>
+          <div class="duo">
+            <figure>
+              <figcaption>By hand · every face, every time</figcaption>
+<pre class="code"><span class="kw">const</span> ws = <span class="kw">new</span> WebSocket(
+  <span class="st">"ws://127.0.0.1:8317/sessions/"</span> + id + <span class="st">"/events"</span>);
+ws.onmessage = (e) =&gt; {
+  <span class="kw">const</span> f = JSON.parse(e.data);
+  <span class="kw">if</span> (f.type === <span class="st">"hello"</span>) last = f.turn;
+  <span class="kw">if</span> (f.type === <span class="st">"turn"</span>) render(f.turn);
+};
+ws.onclose = () =&gt; reconnect(last); <span class="cm">// and replay the gap</span></pre>
+            </figure>
+            <figure>
+              <figcaption>With the bridge · one call</figcaption>
+<pre class="code"><span class="kw">const</span> off = <span class="kw">await</span> bridge.subscribe(id, {},
+  (f) =&gt; render(f.turn));</pre>
+            </figure>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -867,7 +1065,7 @@ base_url = <span class="st">"http://127.0.0.1:11434"</span>
   <section id="starter">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow"><b>Sheet GA-3</b> · detail · the entry point</p>
+        <p class="eyebrow"><b>Sheet GA-4</b> · detail · the entry point</p>
         <h2>Start from a harness that already answers.</h2>
         <p class="lede">The starter, galvena/galvena, rides the framework as versioned dependencies. Clone it and build it: a functioning harness answers. No account, no cloud, no telemetry; nothing is required, everything is yours.</p>
       </div>
@@ -912,65 +1110,6 @@ base_url = <span class="st">"http://127.0.0.1:11434"</span>
           </div>
           <p class="ownnote">Fixes land upstream. <b>You never fork the frame.</b></p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ sponsors · the backing ============ -->
-  <section class="sponsors" id="sponsors">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow"><b>Sheet GA-4</b> · detail · the backing</p>
-        <h2>Sponsors.</h2>
-        <p class="lede">Galvena is MIT-licensed and free. Sponsorship keeps the harness maintained and moving forward, and supporters get their marks on the repositories and the releases. The wall below is drawn and hatched; it fills in as sponsors arrive.</p>
-      </div>
-
-      <div class="cloud" data-zcode-design-cloud>
-        <div class="tierrow">
-          <p class="tierlab"><b>Platinum</b> · one mark, the top of the README</p>
-          <div class="slots">
-            <div class="slot platinum"><i>reserved</i></div>
-          </div>
-        </div>
-        <div class="tierrow">
-          <p class="tierlab"><b>Gold</b> · the sponsors list, every release</p>
-          <div class="slots">
-            <div class="slot gold"><i>reserved</i></div>
-            <div class="slot gold"><i>reserved</i></div>
-            <div class="slot gold"><i>reserved</i></div>
-          </div>
-        </div>
-        <div class="contribs">
-          <p>Contributors need no tier: everyone who ships code, docs, or skills is listed among the contributors, forever.</p>
-          <a href="https://github.com/galvena/framework/graphs/contributors" rel="noopener">See the contributors</a>
-        </div>
-      </div>
-
-      <div class="benefits">
-        <table>
-          <thead>
-            <tr><th scope="col">Tier</th><th scope="col">You get</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="t"><b>◆</b> Platinum</td>
-              <td>Your logo at the top of the README, early access to releases, and a say in the roadmap.</td>
-            </tr>
-            <tr>
-              <td class="t">Gold</td>
-              <td>Your logo in the sponsors list and a shout-out in every release.</td>
-            </tr>
-            <tr>
-              <td class="t">Contributors</td>
-              <td>Listed among the contributors, forever.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="sponsor-foot">
-        <a class="btn btn-primary" href="https://github.com/sponsors/galvena" rel="noopener">Sponsor Galvena</a>
-        <p class="note">Sponsors are donors, not commitment for work.</p>
       </div>
     </div>
   </section>
@@ -1068,6 +1207,25 @@ base_url = <span class="st">"http://127.0.0.1:11434"</span>
     if (fig) io.observe(fig);
     if (stamp) io.observe(stamp);
   }
+
+  // the three faces: one session, three clients
+  var tabs = [...document.querySelectorAll('[role="tab"]')];
+  function pick(tab) {
+    tabs.forEach(function (b) {
+      var on = b === tab;
+      b.setAttribute("aria-selected", on);
+      b.setAttribute("tabindex", on ? "0" : "-1");
+      document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function (b, i) {
+    b.addEventListener("click", function () { pick(b); });
+    b.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      var n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      n.focus(); pick(n); e.preventDefault();
+    });
+  });
 })();
 </script>
 
