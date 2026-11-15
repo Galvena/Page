@@ -2,21 +2,8 @@
 import { Button } from "@/components/ui/button";
 import SectionShell from "@/components/site/SectionShell.vue";
 import Eyebrow from "@/components/site/Eyebrow.vue";
-import SheetBlock from "@/components/site/SheetBlock.vue";
-import KvTable from "@/components/site/KvTable.vue";
+import HarnessPreview from "@/components/site/HarnessPreview.vue";
 
-const titleRows = [
-  { k: "Drawing no", v: "GA-1000" },
-  { k: "Subject", v: "The harness frame" },
-  { k: "Crates", v: "10", sub: "ruler below, to scale" },
-  { k: "Engine", v: "127.0.0.1:8317", sub: "HTTP · WebSocket · localhost only" },
-  {
-    k: "Webview floor",
-    v: "WebKitGTK",
-    sub: "WKWebView · WebView2 · WebKitGTK, via wry",
-  },
-  { k: "Rev", v: "1.0 · MIT" },
-];
 const roles = ["Implementor", "Subscription", "Business", "User"];
 </script>
 
@@ -55,15 +42,13 @@ const roles = ["Implementor", "Subscription", "Business", "User"];
         </p>
       </div>
 
-      <aside aria-label="Title block" class="max-lg:max-w-[560px]">
-        <SheetBlock header="Title block" header-right="Sheet 1 of 5">
-          <KvTable :rows="titleRows" />
-        </SheetBlock>
-      </aside>
+      <div class="flex justify-center lg:justify-end">
+        <HarnessPreview class="w-full max-w-[480px]" />
+      </div>
     </div>
 
     <div
-      class="chain mt-[clamp(44px,6vw,72px)] flex flex-wrap items-center gap-[18px] border-y border-[rgba(233,241,250,0.11)] py-[18px]"
+      class="chain mt-[clamp(44px,6vw,72px)] flex flex-wrap items-center gap-[18px] border-y border-line py-[18px]"
     >
       <span
         class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3"

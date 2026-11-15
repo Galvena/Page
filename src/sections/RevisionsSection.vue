@@ -35,7 +35,7 @@ const epochs = [
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow v-for="e in epochs" :key="e.epoch" class="border-[rgba(233,241,250,0.11)]">
+          <TableRow v-for="e in epochs" :key="e.epoch" class="border-line">
             <TableCell class="px-[18px] py-3 whitespace-nowrap text-oxide-hi">{{ e.rev }}</TableCell>
             <TableCell class="px-[18px] py-3 whitespace-nowrap text-foreground">{{ e.epoch }}</TableCell>
             <TableCell class="px-[18px] py-3">{{ e.builds }}</TableCell>

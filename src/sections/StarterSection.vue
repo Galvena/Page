@@ -65,7 +65,7 @@ const faces = [
             <li
               v-for="item in yours"
               :key="item.what"
-              class="flex items-baseline gap-2.5 border-b border-[rgba(233,241,250,0.11)] py-[7px] text-[14.5px] text-ink-2 last:border-b-0"
+              class="flex items-baseline gap-2.5 border-b border-line py-[7px] text-[14.5px] text-ink-2 last:border-b-0"
             >
               <b class="font-semibold text-foreground">{{ item.what }}</b>{{ item.rest }}
             </li>
@@ -76,7 +76,7 @@ const faces = [
             <li
               v-for="item in ridesIn"
               :key="item"
-              class="flex items-baseline gap-2.5 border-b border-[rgba(233,241,250,0.11)] py-[7px] text-[14.5px] text-ink-2 last:border-b-0"
+              class="flex items-baseline gap-2.5 border-b border-line py-[7px] text-[14.5px] text-ink-2 last:border-b-0"
             >
               <b class="font-semibold text-foreground">{{ item }}</b>
             </li>

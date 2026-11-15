@@ -37,7 +37,7 @@ const rows = [
         </nav>
       </div>
       <div
-        class="mt-[clamp(28px,4vw,44px)] flex flex-wrap justify-between gap-3.5 border-t border-[rgba(233,241,250,0.11)] pt-[18px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3"
+        class="mt-[clamp(28px,4vw,44px)] flex flex-wrap justify-between gap-3.5 border-t border-line pt-[18px] font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3"
       >
         <span><b class="font-normal text-ink-2">Galvena</b> · the harness framework for Tauri 2.0</span>
         <span>no account · no cloud · no telemetry</span>

@@ -15,7 +15,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
 
     <Tabs default-value="web">
       <div
-        class="flex flex-wrap items-end justify-between gap-3.5 rounded-t-sm border border-b-0 border-border bg-[var(--bg-1)] px-3 pt-2.5"
+        class="flex flex-col-reverse items-start gap-2 rounded-t-sm border border-b-0 border-border bg-[var(--bg-1)] px-3 py-2.5 md:flex-row md:items-end md:justify-between md:gap-3.5 md:px-3 md:pb-0 md:pt-2.5"
       >
         <TabsList class="h-auto flex-wrap justify-start gap-1 rounded-none bg-transparent p-0">
           <TabsTrigger
@@ -35,7 +35,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
           >
         </TabsList>
         <span
-          class="pb-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3"
+          class="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3 md:pb-2.5"
           >same engine · same session · 127.0.0.1:8317</span
         >
       </div>
@@ -50,7 +50,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
             <div
               class="grid min-h-[232px] grid-cols-[170px_minmax(0,1fr)] overflow-hidden rounded-b-sm border border-t-0 border-border max-md:grid-cols-[minmax(0,1fr)] max-md:min-h-[200px]"
             >
-              <aside aria-hidden="true" class="grid content-start gap-1 border-r border-[rgba(233,241,250,0.11)] bg-[var(--ink-a05)] p-2.5 max-md:hidden">
+              <aside aria-hidden="true" class="grid content-start gap-1 border-r border-line bg-[var(--ink-a05)] p-2.5 max-md:hidden">
                 <b class="px-0 py-1 font-mono text-[9px] font-normal uppercase tracking-[0.14em] text-ink-3">Sessions</b>
                 <span class="msess on rounded-sm px-2 py-1.5 text-xs text-ink-3">first light</span>
                 <span class="msess rounded-sm px-2 py-1.5 text-xs text-ink-3">roadmap sweep</span>
@@ -60,7 +60,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
                 <div class="mturn you max-w-[56ch] self-end rounded-sm border border-border bg-[var(--bg-2)] px-3 py-2.5 text-[13px] leading-[1.55]">
                   <b>you</b>sketch the bridge in one line
                 </div>
-                <div class="mturn bot max-w-[56ch] self-start rounded-sm border border-[rgba(233,241,250,0.11)] bg-background px-3 py-2.5 text-[13px] leading-[1.55]">
+                <div class="mturn bot max-w-[56ch] self-start rounded-sm border border-line bg-background px-3 py-2.5 text-[13px] leading-[1.55]">
                   <b>galvena</b>One page, one import:
                   <code class="font-mono text-[0.92em] text-foreground">createClient("http://127.0.0.1:8317")</code>
                   and the bus is yours.

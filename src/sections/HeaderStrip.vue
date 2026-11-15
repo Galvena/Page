@@ -1,19 +1,63 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import ColorSchemeToggle from "@/components/site/ColorSchemeToggle.vue";
 
 const links = [
+  { href: "#starter", label: "The starter" },
   { href: "#ga", label: "Architecture" },
   { href: "#faces", label: "Three faces" },
   { href: "#frame", label: "The frame" },
-  { href: "#starter", label: "The starter" },
   { href: "#sponsors", label: "Sponsors" },
 ];
+
+const open = ref(false);
+const active = ref("");
+const watched: [string, string][] = [
+  ["ga", "Architecture"],
+  ["faces", "Three faces"],
+  ["frame", "The frame"],
+  ["starter", "The starter"],
+  ["sponsors", "Sponsors"],
+  ["top", ""],
+];
+
+let io: IntersectionObserver | undefined;
+onMounted(() => {
+  io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        active.value = entry.target.id;
+      }
+    },
+    { rootMargin: "-40% 0px -55% 0px" },
+  );
+  for (const [id] of watched) {
+    const el = document.getElementById(id);
+    if (el) io.observe(el);
+  }
+});
+onBeforeUnmount(() => io?.disconnect());
+
+function linkClass(href: string) {
+  const id = href.slice(1);
+  return [
+    "px-1 py-1.5 font-mono text-[11px] uppercase tracking-[0.09em] whitespace-nowrap transition-colors border-b-2 border-transparent",
+    active.value === id
+      ? "text-foreground border-[var(--oxide)]"
+      : "text-ink-2 hover:text-foreground hover:border-border",
+  ];
+}
+
+function close() {
+  open.value = false;
+}
 </script>
 
 <template>
   <header class="sticky top-0 z-40 border-b border-border bg-background">
     <div
-      class="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-4 px-[clamp(20px,4vw,44px)] py-3"
+      class="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-x-3 gap-y-2 px-[clamp(16px,3vw,44px)] py-2 lg:py-2.5"
     >
       <a href="#top" class="flex items-baseline gap-3 no-underline">
         <b
@@ -21,32 +65,74 @@ const links = [
           >Galvena</b
         >
         <span
-          class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3 max-md:hidden"
+          class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3 max-lg:hidden"
           >harness framework · Tauri 2.0</span
         >
       </a>
-      <nav class="flex flex-wrap items-center gap-x-[clamp(14px,2.4vw,30px)] gap-y-2" aria-label="Sections">
+
+      <nav
+        id="site-menu"
+        aria-label="Sections"
+        class="max-md:order-last max-md:w-full md:flex md:items-center"
+        :class="open ? 'flex flex-col' : 'hidden'"
+        @click="close()"
+      >
         <a
           v-for="link in links"
           :key="link.href"
           :href="link.href"
-          class="border-b border-transparent px-0.5 py-1.5 font-mono text-xs uppercase tracking-[0.12em] text-ink-2 transition-colors hover:border-border hover:text-foreground"
+          :class="linkClass(link.href)"
+          class="max-md:px-2 max-md:py-2"
           >{{ link.label }}</a
         >
+        <span
+          class="my-1 border-t border-line max-md:block md:hidden"
+          aria-hidden="true"
+        ></span>
         <a
           href="https://github.com/galvena/framework"
           rel="noopener"
-          class="inline-flex items-center gap-2 border-b border-transparent px-0.5 py-1.5 font-mono text-xs uppercase tracking-[0.12em] text-ink-2 transition-colors hover:border-border hover:text-foreground"
+          :class="linkClass('')"
+          class="inline-flex items-center gap-2 max-md:px-2 max-md:py-2"
         >
           <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
             <path
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
             />
           </svg>
-          GitHub
+          <span class="max-lg:hidden">GitHub</span>
         </a>
+        <ColorSchemeToggle variant="inline" class="mb-2 mt-1 md:hidden" />
       </nav>
-      <ColorSchemeToggle />
+
+      <div class="hidden md:inline-flex">
+        <ColorSchemeToggle variant="dropdown" />
+      </div>
+
+      <button
+        type="button"
+        class="thm-btn md:hidden"
+        :aria-expanded="open"
+        aria-controls="site-menu"
+        @click="open = !open"
+      >
+        <svg
+          viewBox="0 0 12 12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <template v-if="open">
+            <path d="M2 2l8 8M10 2l-8 8" />
+          </template>
+          <template v-else>
+            <path d="M1 2.5h10M1 6h10M1 9.5h10" />
+          </template>
+        </svg>
+        <span>{{ open ? "Close" : "Menu" }}</span>
+      </button>
     </div>
   </header>
 </template>

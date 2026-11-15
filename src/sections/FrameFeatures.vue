@@ -4,7 +4,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
 import Callout from "@/components/site/Callout.vue";
 import CodeWell from "@/components/site/CodeWell.vue";
 const fcard =
-  "rounded-sm border border-border bg-background p-[clamp(22px,3vw,32px)] transition-colors hover:border-[rgba(233,241,250,0.45)]";
+  "rounded-sm border border-border bg-background p-[clamp(22px,3vw,32px)] transition-colors hover:border-line-hover";
 const fcol = `${fcard} grid grid-cols-1 gap-3.5`;
 const fwide = `${fcard} grid grid-cols-1 items-start gap-[clamp(22px,3vw,40px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]`;
 const ftitle =
@@ -15,7 +15,7 @@ const fbody = "text-[15.5px] text-ink-2 max-w-[58ch]";
 <template>
   <SectionShell
     id="frame"
-    class="border-y border-[rgba(233,241,250,0.11)] bg-[var(--ink-a16)]"
+    class="border-y border-line bg-[var(--ink-a16)]"
   >
       <SectionHead
         mark="Sheet GA-3"
