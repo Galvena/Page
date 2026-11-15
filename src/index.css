@@ -441,7 +441,8 @@ pre.well .p { color: var(--oxide-hi); }
   vertical-align: -2px;
 }
 
-/* the theme menu */
+/* the theme menu (components layer: the md:hidden utility must win) */
+@layer components {
 .thm-btn {
   display: inline-flex;
   align-items: center;
@@ -464,6 +465,7 @@ pre.well .p { color: var(--oxide-hi); }
   color: var(--foreground);
   background: var(--ink-a07);
   box-shadow: inset 0 -2px 0 var(--oxide);
+}
 }
 
 /* skip link */
