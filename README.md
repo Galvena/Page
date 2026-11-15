@@ -13,9 +13,14 @@ the bundle.
 ```sh
 npm install
 npm run dev        # vite dev server
-npm run build      # vue-tsc + vite build → dist/
+npm run build      # vue-tsc + vite build → dist/ (then folded into one file)
 npm run preview    # serve the build locally
 ```
+
+The build ends with `scripts/inline-dist.mjs`, which folds the JS module and
+CSS into a single standalone `dist/index.html` — fonts ride in as data URIs,
+so the built page opens straight from the filesystem (no server, no MIME
+errors) exactly as it serves from Pages.
 
 ## Publish it
 

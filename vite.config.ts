@@ -8,6 +8,9 @@ import tailwindcss from "@tailwindcss/vite";
 // whitespace "preserve" keeps <pre> blocks (code, the TUI mock) exact.
 export default defineConfig({
   base: "./",
+  // inline fonts as data URIs so the post-build inliner (scripts/
+  // inline-dist.mjs) can fold everything into one standalone index.html
+  build: { assetsInlineLimit: 1024 * 1024 },
   plugins: [
     vue({ template: { compilerOptions: { whitespace: "preserve" } } }),
     tailwindcss(),
