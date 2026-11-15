@@ -32,10 +32,10 @@ useReveal(wrap, "stamped");
           </Button>
         </div>
         <p
-          class="mt-5 max-w-full overflow-x-auto font-mono text-[13px] whitespace-nowrap text-paper-muted"
+          class="mt-5 max-w-full overflow-x-auto font-mono text-[13px] whitespace-nowrap text-muted-foreground"
         >
           <span class="text-oxide-deep">$</span>
-          <span class="text-paper-ink">git clone https://github.com/galvena/galvena</span>
+          <span class="text-foreground">git clone https://github.com/galvena/galvena</span>
         </p>
       </div>
       <div ref="wrap" class="stampwrap flex justify-center max-lg:justify-start" aria-hidden="true">

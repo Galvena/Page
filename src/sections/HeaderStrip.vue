@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ColorSchemeToggle from "@/components/site/ColorSchemeToggle.vue";
+
 const links = [
   { href: "#ga", label: "Architecture" },
   { href: "#faces", label: "Three faces" },
@@ -44,6 +46,7 @@ const links = [
           GitHub
         </a>
       </nav>
+      <ColorSchemeToggle />
     </div>
   </header>
 </template>

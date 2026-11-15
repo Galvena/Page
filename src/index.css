@@ -16,7 +16,7 @@
   font-display: swap;
 }
 
-/* ============ tokens · the cyanotype drawing sheet ============ */
+/* ============ tokens · dark is the native medium (cyanotype) ============ */
 :root {
   --background: #0e2340; /* prussian ground */
   --foreground: #e9f1fa; /* linework white */
@@ -35,8 +35,9 @@
   --input: rgba(233, 241, 250, 0.26);
   --ring: #e8876b;
   --radius: 0.1875rem;
+  color-scheme: dark;
 
-  /* drawing-sheet extras */
+  /* drawing-sheet extras · dark */
   --ink-2: #bdd0e6;
   --ink-3: #8fa9cb;
   --bg-1: #14304f;
@@ -45,13 +46,63 @@
   --oxide: #c04430;
   --oxide-hi: #e8876b;
   --oxide-deep: #9a3520;
+  --stamp-ink: var(--oxide-deep);
   --code-str: #9fc3ea;
+  --paper: #f1ede2;
+  --paper-ink: #1c2a3c;
+  --paper-muted: #5a6b80;
   --ink-a16: rgba(233, 241, 250, 0.016);
   --ink-a05: rgba(233, 241, 250, 0.05);
   --ink-a07: rgba(233, 241, 250, 0.07);
-  --paper: #f1ede2; /* the fresh sheet */
-  --paper-ink: #1c2a3c;
-  --paper-muted: #5a6b80;
+  --line: rgba(233, 241, 250, 0.11);
+  --line-hover: rgba(233, 241, 250, 0.45);
+  --grid-line: rgba(233, 241, 250, 0.028);
+  --diag-stroke: rgba(233, 241, 250, 0.5);
+  --diag-stroke-2: rgba(233, 241, 250, 0.75);
+  --diag-box: rgba(233, 241, 250, 0.035);
+  --diag-box-2: rgba(233, 241, 250, 0.06);
+  --slot-border: rgba(233, 241, 250, 0.38);
+  --slot-hatch: rgba(233, 241, 250, 0.05);
+}
+
+/* ============ light · the sheet as drafting bond ============ */
+html.light {
+  --background: #f1ede2;
+  --foreground: #1c2a3c;
+  --card: #ece7da;
+  --card-foreground: #1c2a3c;
+  --primary: #c04430;
+  --primary-foreground: #ffffff;
+  --secondary: #e4dfd0;
+  --secondary-foreground: #1c2a3c;
+  --muted: #e7e2d4;
+  --muted-foreground: #5a6b80;
+  --accent: #e2dccb;
+  --accent-foreground: #1c2a3c;
+  --border: rgba(28, 42, 60, 0.28);
+  --input: rgba(28, 42, 60, 0.28);
+  --ring: #9a3520;
+  color-scheme: light;
+
+  --ink-2: #3e4e63;
+  --ink-3: #5a6b80;
+  --bg-1: #eae5d8;
+  --bg-2: #e2dccb;
+  --well: #ece7da;
+  --oxide-hi: #9a3520;
+  --code-str: #2e5fa3;
+  --ink-a16: rgba(28, 42, 60, 0.02);
+  --ink-a05: rgba(28, 42, 60, 0.05);
+  --ink-a07: rgba(28, 42, 60, 0.07);
+  --line: rgba(28, 42, 60, 0.14);
+  --line-hover: rgba(28, 42, 60, 0.5);
+  --grid-line: rgba(28, 42, 60, 0.05);
+  --diag-stroke: rgba(28, 42, 60, 0.55);
+  --diag-stroke-2: rgba(28, 42, 60, 0.8);
+  --diag-box: rgba(28, 42, 60, 0.04);
+  --diag-box-2: rgba(28, 42, 60, 0.08);
+  --slot-border: rgba(28, 42, 60, 0.4);
+  --slot-hatch: rgba(28, 42, 60, 0.06);
 }
 
 .paper-scope {
@@ -65,7 +116,24 @@
   --ring: var(--oxide-deep);
   --ink-2: #3e4e63;
   --ink-3: #5a6b80;
-  --oxide-hi: var(--oxide-deep);
+  --oxide-hi: #9a3520;
+}
+
+/* light mode flips the closing back to the cyanotype, keeping the page's
+   one contrast section */
+html.light .paper-scope {
+  --background: #0e2340;
+  --foreground: #e9f1fa;
+  --primary: #c04430;
+  --primary-foreground: #ffffff;
+  --muted-foreground: #bdd0e6;
+  --border: rgba(233, 241, 250, 0.26);
+  --ring: #e8876b;
+  --ink-2: #bdd0e6;
+  --ink-3: #8fa9cb;
+  --oxide-hi: #e8876b;
+  --oxide-deep: #e8876b;
+  --line: rgba(233, 241, 250, 0.11);
 }
 
 @theme inline {
@@ -85,6 +153,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-line: var(--line);
+  --color-line-hover: var(--line-hover);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-well: var(--well);
@@ -114,8 +184,8 @@
     font-size: 16.5px;
     line-height: 1.65;
     background-image:
-      linear-gradient(rgba(233, 241, 250, 0.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(233, 241, 250, 0.028) 1px, transparent 1px);
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 88px 88px;
     text-rendering: optimizeLegibility;
   }
@@ -136,7 +206,7 @@
   content: "";
   position: absolute;
   inset: 5px;
-  border: 1px solid rgba(233, 241, 250, 0.11);
+  border: 1px solid var(--line);
   pointer-events: none;
 }
 .tick {
@@ -212,7 +282,7 @@
 }
 .blocklabel {
   padding: 9px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.16em;
@@ -228,7 +298,7 @@
 }
 .kv td {
   font-family: var(--font-mono);
-  border-bottom: 1px solid rgba(233, 241, 250, 0.11);
+  border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
 .kv tr:last-child td {
@@ -252,7 +322,7 @@
 
 pre.well {
   background: var(--well);
-  border: 1px solid rgba(233, 241, 250, 0.11);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow-x: auto;
   color: var(--ink-2);
@@ -274,12 +344,12 @@ pre.well .p { color: var(--oxide-hi); }
 
 /* sponsor wall */
 .slot {
-  border: 1px dashed rgba(233, 241, 250, 0.38);
+  border: 1px dashed var(--slot-border);
   border-radius: var(--radius);
   background: repeating-linear-gradient(
     45deg,
     transparent 0 7px,
-    rgba(233, 241, 250, 0.05) 7px 8px
+    var(--slot-hatch) 7px 8px
   );
   position: relative;
 }
@@ -298,10 +368,10 @@ pre.well .p { color: var(--oxide-hi); }
 .slot-gold { height: 42px; flex: 1 1 160px; max-width: 200px; }
 
 /* general arrangement drawing */
-.diag .ln { stroke: rgba(233, 241, 250, 0.5); fill: none; stroke-width: 1.3; }
-.diag .ln2 { stroke: rgba(233, 241, 250, 0.75); fill: none; stroke-width: 1.3; }
-.diag .boxf { fill: rgba(233, 241, 250, 0.035); }
-.diag .box2f { fill: rgba(233, 241, 250, 0.06); }
+.diag .ln { stroke: var(--diag-stroke); fill: none; stroke-width: 1.3; }
+.diag .ln2 { stroke: var(--diag-stroke-2); fill: none; stroke-width: 1.3; }
+.diag .boxf { fill: var(--diag-box); }
+.diag .box2f { fill: var(--diag-box-2); }
 .diag .dash { stroke-dasharray: 6 5; }
 .diag .red { stroke: var(--oxide-hi); }
 .diag text {
@@ -372,6 +442,31 @@ pre.well .p { color: var(--oxide-hi); }
   vertical-align: -2px;
 }
 
+/* the theme menu */
+.thm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 120ms ease, background 120ms ease;
+}
+.thm-btn svg { width: 12px; height: 12px; }
+.thm-btn:hover { color: var(--ink-2); background: var(--ink-a05); }
+.thm-btn[aria-pressed="true"] {
+  color: var(--foreground);
+  background: var(--ink-a07);
+  box-shadow: inset 0 -2px 0 var(--oxide);
+}
+
 /* the stamp */
 @keyframes stampin {
   0% { opacity: 0; transform: rotate(-6deg) scale(1.5); }
@@ -381,8 +476,8 @@ pre.well .p { color: var(--oxide-hi); }
 .stampwrap .stamp {
   display: inline-block;
   transform: rotate(-6deg);
-  border: 3px double var(--oxide-deep);
-  color: var(--oxide-deep);
+  border: 3px double var(--stamp-ink);
+  color: var(--stamp-ink);
   font-family: var(--font-mono);
   font-size: 15px;
   letter-spacing: 0.22em;
