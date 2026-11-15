@@ -25,7 +25,7 @@ errors) exactly as it serves from Pages.
 ## Publish it
 
 The page deploys to GitHub Pages as a project page, served from
-`https://galvena.github.io/page/`:
+`https://galvena.github.io/Page/`:
 
 1. Push `main` to `github.com/galvena/page`.
 2. In the repository settings, set **Pages → Source → GitHub Actions**.
