@@ -835,7 +835,7 @@ policy = <span class="st">"./policy.toml"</span> <span class="cm"># allow · den
 
         <article class="fcard">
           <p class="callout"><b>A4</b> · the tool seam</p>
-          <h3>Tools load. Then they wait.</h3>
+          <h3>Loaded, not enabled.</h3>
           <p>MCP servers mount only behind an explicit <code>--mcp</code>, because connecting runs their code. Every mounted tool loads disabled, and a flip persists across restarts.</p>
           <pre class="code" aria-label="Terminal transcript of mounting MCP tools"><span class="pr">$</span> galvena serve --mcp --enable-tool fetch</pre>
         </article>
@@ -852,7 +852,7 @@ policy = <span class="st">"./policy.toml"</span> <span class="cm"># allow · den
           <div>
             <p class="callout"><b>A6</b> · the providers</p>
             <h3>Any model. Or none.</h3>
-            <p>The stub provider answers offline on first run: no key, no network, no telemetry. A real model is one line of <code>harness.toml</code> away, pointed at a cloud or at your own box. Anthropic, OpenAI and Responses drivers cover their compatible servers, so local stacks ride the same seam.</p>
+            <p>The stub provider answers offline on first run, and nothing phones home. A real model is one line of <code>harness.toml</code> away, pointed at a cloud or at your own box. Anthropic, OpenAI and Responses drivers cover their compatible servers, so local stacks ride the same seam.</p>
           </div>
           <pre class="code" aria-label="harness.toml provider keys"><span class="cm"># "stub", the default, answers offline: no key, no network</span>
 provider = <span class="st">"openai"</span>        <span class="cm"># or "anthropic"</span>
@@ -980,7 +980,7 @@ base_url = <span class="st">"http://127.0.0.1:11434"</span>
     <div class="wrap">
       <div class="head">
         <p class="eyebrow"><b>Revisions</b> · the plan of record</p>
-        <h2>Drawn in epochs.</h2>
+        <h2>The roadmap, drawn in epochs.</h2>
       </div>
       <div class="revtab">
         <table>
@@ -1006,7 +1006,7 @@ base_url = <span class="st">"http://127.0.0.1:11434"</span>
         <div>
           <p class="eyebrow"><b>Sheet GA-5</b> · the next drawing · blank</p>
           <h2>Assemble yours.</h2>
-          <p class="lede">One clone and the engine answers. What the harness looks like, what it loads, and who it serves: those calls are yours to draw.</p>
+          <p class="lede">One clone and the engine answers. What the harness looks like and what it loads: those calls are yours to draw.</p>
           <div class="closing-actions">
             <a class="btn btn-dark" href="https://github.com/galvena/galvena" rel="noopener">Clone the starter</a>
             <a class="btn btn-line" href="https://github.com/galvena/framework" rel="noopener">Read the framework</a>
