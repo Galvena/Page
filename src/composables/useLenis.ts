@@ -32,19 +32,31 @@ export function useLenis() {
       if (url.origin !== location.origin || url.pathname !== location.pathname) return;
       const hash = url.hash;
       if (!hash || hash === "#") return;
-      const target =
-        hash === "#top" ? 0 : document.querySelector<HTMLElement>(hash);
-      if (!target) return;
-      e.preventDefault();
       const header =
         document.querySelector("header")?.getBoundingClientRect().height ?? 0;
-      if (lenis) {
-        lenis.scrollTo(target as HTMLElement, { offset: -(header + 8) });
-      } else {
-        // native path: scroll-margin-top (from --header-h) clears the header
-        (target as HTMLElement).scrollIntoView();
+      const gap = 24;
+      const goTo = (el: HTMLElement | number) => {
+        if (lenis) lenis.scrollTo(el, { offset: el === 0 ? 0 : -(header + gap) });
+        else if (typeof el === "number") window.scrollTo({ top: el });
+        else {
+          const y = el.getBoundingClientRect().top + window.scrollY - header - gap;
+          window.scrollTo({ top: Math.max(0, y) });
+        }
+        history.replaceState(null, "", hash);
+      };
+      if (hash === "#top") {
+        e.preventDefault();
+        goTo(0);
+        return;
       }
-      history.replaceState(null, "", hash);
+      const target = document.querySelector<HTMLElement>(hash);
+      if (!target) return;
+      e.preventDefault();
+      // the consistent start: each sheet's eyebrow lands 24px under the
+      // header, whatever its own top padding happens to be
+      const sheet =
+        (target.querySelector(".eyebrow") as HTMLElement | null) ?? target;
+      goTo(sheet);
     };
     document.addEventListener("click", onClick);
 
