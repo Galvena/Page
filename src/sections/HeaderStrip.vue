@@ -44,7 +44,7 @@ onBeforeUnmount(() => io?.disconnect());
 function linkClass(href: string) {
   const id = href.slice(1);
   return [
-    "px-1.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.09em] whitespace-nowrap transition-colors rounded-sm",
+    "px-1 py-1.5 font-mono text-[11px] uppercase tracking-[0.09em] whitespace-nowrap transition-colors rounded-sm",
     active.value === id
       ? "bg-[var(--ink-a07)] text-foreground shadow-[inset_0_-2px_0_var(--oxide)]"
       : "text-ink-2 hover:text-foreground hover:bg-[var(--ink-a05)]",
@@ -94,8 +94,7 @@ function close() {
         <a
           href="https://github.com/galvena/framework"
           rel="noopener"
-          :class="linkClass('')"
-          class="inline-flex items-center gap-2 max-md:px-2 max-md:py-2"
+          class="inline-flex items-center gap-2 px-2 py-2 font-mono text-[11px] uppercase tracking-[0.09em] text-ink-2 transition-colors hover:text-foreground md:hidden"
         >
           <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
             <path
