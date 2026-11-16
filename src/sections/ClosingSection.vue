@@ -18,7 +18,7 @@ import SectionHead from "@/components/site/SectionHead.vue";
         title="Assemble yours."
         lede="One clone and the engine answers. What the harness looks like and what it loads: those calls are yours to draw."
       />
-      <div class="flex flex-col items-start gap-4 lg:items-end">
+      <div class="flex w-full flex-col items-start gap-4 lg:w-auto lg:items-end">
         <div class="flex flex-wrap gap-3.5">
           <Button as-child variant="default" size="sheet">
             <a href="https://github.com/galvena/galvena" rel="noopener">Clone the starter</a>

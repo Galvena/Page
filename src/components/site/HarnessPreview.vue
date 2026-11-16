@@ -10,15 +10,16 @@
     class="overflow-hidden rounded-[10px] border border-border bg-card shadow-[0_28px_60px_-28px_rgba(4,10,20,0.65)]"
   >
     <!-- macOS titlebar -->
-    <div class="flex items-center gap-2 border-b border-line px-3.5 py-2.5">
-      <span class="size-[10px] rounded-full bg-[#FF5F57]" />
-      <span class="size-[10px] rounded-full bg-[#FEBC2E]" />
-      <span class="size-[10px] rounded-full bg-[#28C840]" />
+    <div class="relative flex items-center border-b border-line px-3.5 py-2.5">
+      <span class="flex items-center gap-2">
+        <span class="size-[10px] rounded-full bg-[#FF5F57]" />
+        <span class="size-[10px] rounded-full bg-[#FEBC2E]" />
+        <span class="size-[10px] rounded-full bg-[#28C840]" />
+      </span>
       <span
-        class="ml-2 flex-1 truncate text-center font-mono text-[10.5px] tracking-[0.06em] text-ink-3"
+        class="pointer-events-none absolute left-1/2 -translate-x-1/2 font-mono text-[10.5px] tracking-[0.06em] text-ink-3"
         >Galvena — first light</span
       >
-      <span class="w-[34px]" />
     </div>
 
     <div class="grid grid-cols-[124px_minmax(0,1fr)] max-sm:grid-cols-[minmax(0,1fr)]">
@@ -37,10 +38,6 @@
         >
         <span class="rounded-[4px] px-1.5 py-1 text-[11px] text-ink-3">roadmap sweep</span>
         <span class="rounded-[4px] px-1.5 py-1 text-[11px] text-ink-3">flaky test hunt</span>
-        <span
-          class="mt-auto pt-2 font-mono text-[8.5px] uppercase tracking-[0.12em] text-ink-3"
-          >ws · 127.0.0.1:8317</span
-        >
       </div>
 
       <!-- the chat -->
@@ -54,7 +51,7 @@
             >galvena</b
           >
           One page, one import:
-          <code class="font-mono text-[11px] text-foreground">createClient("http://127.0.0.1:8317")</code>
+          <code class="break-words font-mono text-[10.5px] text-foreground">createClient("http://127.0.0.1:8317")</code>
           — the bus is yours.
         </div>
         <div class="self-start pl-3 font-mono text-[11px] text-ink-3">

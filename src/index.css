@@ -331,6 +331,7 @@ pre.well .kw { color: var(--oxide-hi); }
 pre.well .st { color: var(--code-str); }
 pre.well .pr { color: var(--oxide-hi); }
 pre.well .p { color: var(--oxide-hi); }
+pre.well .code-line { display: block; min-height: 1lh; }
 
 .ownblock li::before {
   content: "";
@@ -412,26 +413,6 @@ pre.well .p { color: var(--oxide-hi); }
   color: var(--foreground);
   background: var(--well);
   box-shadow: inset 0 2px 0 var(--oxide);
-}
-.mchrome-i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--border);
-}
-.msess.on {
-  color: var(--foreground);
-  background: var(--ink-a07);
-  box-shadow: inset 2px 0 0 var(--oxide-hi);
-}
-.minput {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--ink-3);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  padding: 8px 12px;
-  margin-top: auto;
 }
 .cursor {
   display: inline-block;

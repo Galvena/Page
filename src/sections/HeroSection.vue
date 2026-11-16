@@ -4,7 +4,6 @@ import SectionShell from "@/components/site/SectionShell.vue";
 import Eyebrow from "@/components/site/Eyebrow.vue";
 import HarnessPreview from "@/components/site/HarnessPreview.vue";
 
-const roles = ["Implementor", "Subscription", "Business", "User"];
 </script>
 
 <template>
@@ -43,29 +42,9 @@ const roles = ["Implementor", "Subscription", "Business", "User"];
       </div>
 
       <div class="flex justify-center lg:justify-end">
-        <HarnessPreview class="w-full max-w-[480px]" />
+        <HarnessPreview class="w-full max-w-[520px]" />
       </div>
     </div>
 
-    <div
-      class="chain mt-[clamp(44px,6vw,72px)] flex flex-wrap items-center gap-[18px] border-y border-line py-[18px]"
-    >
-      <span
-        class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3"
-        >Policy flows</span
-      >
-      <ol class="flex list-none flex-wrap items-center gap-3 p-0">
-        <li
-          v-for="role in roles"
-          :key="role"
-          class="font-mono text-xs uppercase tracking-[0.1em] text-ink-2"
-        >
-          {{ role }}
-        </li>
-      </ol>
-      <span class="font-mono text-[11.5px] tracking-[0.03em] text-ink-3 max-sm:basis-full">
-        each level tightens what it inherits, never loosens
-      </span>
-    </div>
   </SectionShell>
 </template>

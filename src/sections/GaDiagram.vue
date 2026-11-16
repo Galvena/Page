@@ -17,7 +17,7 @@ useReveal(fig, "drawn");
         lede="The engine serves HTTP and WebSocket on localhost, and that is the only surface it has. Pages, terminals and desktop shells are all clients of the same bus. Policy arrives signed from upstream and is enforced on your machine."
       />
 
-      <div class="overflow-x-auto rounded-sm border border-border">
+      <div class="overflow-x-auto rounded-sm border border-border" data-lenis-prevent>
         <div class="min-w-[1020px] p-[clamp(16px,3vw,36px)]">
           <figure ref="fig" class="ga-fig m-0">
             <svg
@@ -48,8 +48,8 @@ useReveal(fig, "drawn");
               <text class="pop" x="580" y="72" text-anchor="middle">IMPLEMENTOR CLOUD</text>
               <text class="sub pop" x="580" y="89" text-anchor="middle">OpenCode · DeepSeek · Claude · Qwen · …</text>
               <line class="ln dash red anim" pathLength="1" style="--i: 1" x1="580" y1="98" x2="580" y2="164" />
-              <text class="tiny tred pop" x="594" y="126">signed policy</text>
-              <text class="tiny tred pop" x="594" y="141">enforced locally, on every command</text>
+              <text class="tiny tred pop" x="566" y="126" text-anchor="end">signed policy</text>
+              <text class="tiny tred pop" x="566" y="141" text-anchor="end">enforced locally, on every command</text>
 
               <!-- clients -->
               <text class="tiny pop" x="56" y="182">INTERFACES · EVERY ONE A CLIENT</text>
@@ -207,6 +207,23 @@ useReveal(fig, "drawn");
             </figcaption>
           </figure>
         </div>
+      </div>
+      <div
+        class="chain mt-7 flex flex-wrap items-center gap-[18px] border-y border-line py-[18px]"
+      >
+        <span class="font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3">Policy flows</span>
+        <ol class="flex list-none flex-wrap items-center gap-3 p-0">
+          <li
+            v-for="role in ['Implementor', 'Subscription', 'Business', 'User']"
+            :key="role"
+            class="font-mono text-xs uppercase tracking-[0.1em] text-ink-2"
+          >
+            {{ role }}
+          </li>
+        </ol>
+        <span class="font-mono text-[11.5px] tracking-[0.03em] text-ink-3">
+          each level tightens what it inherits, never loosens
+        </span>
       </div>
   </SectionShell>
 </template>
