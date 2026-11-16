@@ -202,7 +202,7 @@ useReveal(fig, "drawn");
             <figcaption
               class="mt-3.5 font-mono text-[11.5px] tracking-[0.08em] text-ink-3"
             >
-              FIG. 1 — A RUNNING HARNESS, END TO END. REDRAWN FROM
+              FIG. 1 · A RUNNING HARNESS, END TO END. REDRAWN FROM
               docs/architecture.md IN galvena/framework.
             </figcaption>
           </figure>

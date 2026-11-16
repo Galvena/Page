@@ -56,7 +56,7 @@ const epochs = [
       mark="Revisions"
       label="the plan of record"
       title="The roadmap, drawn in epochs."
-      lede="One feature per minor; majors are epochs. Each row below carries the stellar features its epoch exists for — the live table rides in ROADMAP.md at github.com/galvena/framework."
+      lede="One feature per minor; majors are epochs. Each row below carries the stellar features its epoch exists for; the live table rides in ROADMAP.md at github.com/galvena/framework."
     />
     <div class="rounded-sm border border-border">
       <div

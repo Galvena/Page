@@ -5,7 +5,7 @@ import Callout from "@/components/site/Callout.vue";
 import CodeWell, { type CodeSeg } from "@/components/site/CodeWell.vue";
 
 const fcard =
-  "rounded-sm border border-border bg-background p-[clamp(22px,3vw,32px)] transition-colors hover:border-line-hover";
+  "min-w-0 rounded-sm border border-border bg-background p-[clamp(22px,3vw,32px)] transition-colors hover:border-line-hover";
 const fcol = `${fcard} grid grid-cols-1 gap-3.5`;
 const fwide = `${fcard} grid grid-cols-1 items-start gap-[clamp(22px,3vw,40px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]`;
 const ftitle =
@@ -267,7 +267,7 @@ const duoBridge: CodeSeg[][] = [
       </article>
 
       <!-- A7 · the shortcut -->
-      <article :class="`${fcard} col-span-2 grid grid-cols-1 gap-4`">
+      <article :class="`${fcard} col-span-2 grid grid-cols-1 gap-4 lg:col-span-2`">
         <Callout mark="A7" label="the shortcut" />
         <h3 :class="ftitle">The socket dance, one call.</h3>
         <p :class="fbody">

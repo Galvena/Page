@@ -5,7 +5,7 @@ import { onBeforeUnmount, onMounted } from "vue";
  * Smooth scrolling that respects the sticky header: in-page anchors are
  * intercepted and scrolled with Lenis, offset by the header's live height,
  * so a jumped title never hides beneath it. Skipped entirely for visitors
- * who asked for reduced motion — they keep native instant jumps, guided by
+ * who asked for reduced motion; they keep native instant jumps, guided by
  * the `scroll-margin-top` set below.
  */
 export function useLenis() {

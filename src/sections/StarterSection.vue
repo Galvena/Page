@@ -136,7 +136,7 @@ const terminal: CodeSeg[][] = [
               >
                 <path :d="item.icon" />
               </svg>
-              <span><b class="font-semibold text-foreground">{{ item.label }}</b><span class="text-ink-3"> — {{ item.sub }}</span></span>
+              <span><b class="font-semibold text-foreground">{{ item.label }}</b><span class="text-ink-3"> · {{ item.sub }}</span></span>
             </div>
           </div>
         </SheetBlock>

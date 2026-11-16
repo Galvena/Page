@@ -9,7 +9,7 @@ import HarnessPreview from "@/components/site/HarnessPreview.vue";
 <template>
   <SectionShell id="top">
     <div
-      class="grid grid-cols-1 items-start gap-[clamp(36px,5vw,72px)] lg:grid-cols-[minmax(0,1.5fr)_minmax(0,0.9fr)]"
+      class="grid grid-cols-1 items-stretch gap-[clamp(36px,5vw,72px)] lg:grid-cols-[minmax(0,1.5fr)_minmax(0,0.9fr)]"
     >
       <div>
         <Eyebrow mark="GA-1000" label="general arrangement · rev 1.0" class="mb-6" />
@@ -41,8 +41,8 @@ import HarnessPreview from "@/components/site/HarnessPreview.vue";
         </p>
       </div>
 
-      <div class="flex justify-center lg:justify-end">
-        <HarnessPreview class="w-full max-w-[520px]" />
+      <div class="flex h-full justify-center lg:justify-end">
+        <HarnessPreview class="h-full w-full max-w-[520px]" />
       </div>
     </div>
 

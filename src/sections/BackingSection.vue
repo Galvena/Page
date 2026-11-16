@@ -55,18 +55,25 @@ const tiers = [
           <a href="https://github.com/sponsors/galvena" rel="noopener">Sponsor Galvena</a>
         </Button>
       </div>
-      <div class="grid gap-2.5">
-        <div v-for="tier in tiers" :key="tier.mark" class="text-[14px] leading-[1.55] text-ink-2">
-          <b class="font-mono text-[11px] font-normal uppercase tracking-[0.12em] text-oxide-hi">{{ tier.mark }}</b>
-          — {{ tier.text }}
-        </div>
-        <a
-          href="https://github.com/galvena/framework/graphs/contributors"
-          rel="noopener"
-          class="w-fit border-b border-border pb-0.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-oxide-hi no-underline hover:border-[var(--oxide-hi)]"
-          >See the contributors</a
+      <ul class="grid list-none gap-2.5 p-0">
+        <li
+          v-for="tier in tiers"
+          :key="tier.mark"
+          class="flex items-baseline gap-2.5 text-[14px] leading-[1.55] text-ink-2"
         >
-      </div>
+          <span class="h-px w-3.5 flex-none translate-y-[-3px] bg-ink-3" aria-hidden="true"></span>
+          <span>
+            <b class="font-mono text-[11px] font-normal uppercase tracking-[0.12em] text-oxide-hi">{{ tier.mark }}</b>
+            · {{ tier.text }}
+          </span>
+        </li>
+      </ul>
+      <a
+        href="https://github.com/galvena/framework/graphs/contributors"
+        rel="noopener"
+        class="mt-1 w-fit border-b border-border pb-0.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-oxide-hi no-underline hover:border-[var(--oxide-hi)]"
+        >See the contributors</a
+      >
     </div>
   </SectionShell>
 </template>

@@ -7,7 +7,7 @@ export interface CodeSeg {
 
 <script setup lang="ts">
 // lines of {segments}; every line renders as a block element, so the fence
-// keeps its line breaks in every viewer — even ones that strip whitespace
+// keeps its line breaks in every viewer, even ones that strip whitespace
 defineProps<{ lines: CodeSeg[][]; label?: string }>();
 </script>
 

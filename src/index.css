@@ -420,6 +420,11 @@ pre.well .code-line { display: block; min-height: 1lh; }
   height: 13px;
   background: var(--ink-3);
   vertical-align: -2px;
+  animation: cursorblink 1.1s steps(1) infinite;
+}
+@keyframes cursorblink {
+  0%, 55% { opacity: 1; }
+  56%, 100% { opacity: 0.15; }
 }
 
 /* the theme menu (components layer: the md:hidden utility must win) */
@@ -475,4 +480,5 @@ pre.well .code-line { display: block; min-height: 1lh; }
   }
   .ga-fig.drawn .pop { animation: none; opacity: 1; }
   .stampwrap.stamped .stamp { animation: none; }
+  .cursor { animation: none; }
 }

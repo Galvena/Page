@@ -7,7 +7,7 @@
   <div
     role="img"
     aria-label="Preview of a harness built on Galvena: a small macOS chat window titled first light, with a sessions sidebar, one question and one answer."
-    class="overflow-hidden rounded-[10px] border border-border bg-card shadow-[0_28px_60px_-28px_rgba(4,10,20,0.65)]"
+    class="flex h-full flex-col overflow-hidden rounded-[10px] border border-border bg-card shadow-[0_28px_60px_-28px_rgba(4,10,20,0.65)]"
   >
     <!-- macOS titlebar -->
     <div class="relative flex items-center border-b border-line px-3.5 py-2.5">
@@ -18,11 +18,11 @@
       </span>
       <span
         class="pointer-events-none absolute left-1/2 -translate-x-1/2 font-mono text-[10.5px] tracking-[0.06em] text-ink-3"
-        >Galvena — first light</span
+        >Galvena · first light</span
       >
     </div>
 
-    <div class="grid grid-cols-[124px_minmax(0,1fr)] max-sm:grid-cols-[minmax(0,1fr)]">
+    <div class="grid flex-1 grid-cols-[124px_minmax(0,1fr)] max-sm:grid-cols-[minmax(0,1fr)]">
       <!-- sessions sidebar -->
       <div
         class="flex flex-col gap-1 border-r border-line bg-[var(--ink-a05)] p-2.5 max-sm:hidden"
@@ -41,7 +41,7 @@
       </div>
 
       <!-- the chat -->
-      <div class="flex min-h-[268px] flex-col gap-2.5 p-3.5">
+      <div class="flex min-h-[268px] flex-1 flex-col gap-2.5 p-3.5">
         <div class="max-w-[85%] self-end rounded-lg border border-border bg-[var(--bg-2)] px-3 py-2 text-[12.5px] leading-[1.5]">
           sketch the bridge in one line
         </div>
@@ -52,7 +52,7 @@
           >
           One page, one import:
           <code class="break-words font-mono text-[10.5px] text-foreground">createClient("http://127.0.0.1:8317")</code>
-          — the bus is yours.
+          and the bus is yours.
         </div>
         <div class="self-start pl-3 font-mono text-[11px] text-ink-3">
           wiring the desktop shell<span class="cursor" aria-hidden="true"></span>
