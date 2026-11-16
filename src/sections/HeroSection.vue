@@ -20,9 +20,9 @@ import HarnessPreview from "@/components/site/HarnessPreview.vue";
         </h1>
         <p class="mt-6 max-w-[62ch] text-lg text-ink-2">
           Galvena is a harness framework for Tauri 2.0. Ten Rust crates keep
-          the plumbing: the engine, the bus, the bridge, the vault. A
-          developer assembles the harness on top, with their name, their
-          panels, their policies.
+          the plumbing: the engine, the bus, the bridge, the vault. You
+          assemble the harness on top. Your name, your panels, your
+          policies.
         </p>
         <div class="mt-8 flex flex-wrap gap-3.5">
           <Button as-child variant="default" size="sheet">

@@ -35,7 +35,7 @@ const cli: CodeSeg[][] = [
       mark="Sheet GA-2"
       label="detail · the detachment"
       title="One session. Three faces."
-      lede="The same session surface answers an app in a browser, a TUI in a terminal, and the CLI at a prompt. All three ship with the starter, so build the one you need and keep the rest. Vibe-code it instead and every socket, reconnect, and replay is yours to own."
+      lede="The same session surface answers an app, a TUI, and the CLI. All three ship with the starter. Build the one you need. Keep the rest. Vibe-code it instead, and every socket, reconnect, and replay is yours to own."
     />
 
     <Tabs default-value="app">

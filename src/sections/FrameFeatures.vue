@@ -170,7 +170,7 @@ const duoBridge: CodeSeg[][] = [
       mark="Sheet GA-3"
       label="detail · what the frame carries"
       title="The frame, in code."
-      lede="The decisions the framework makes so a harness does not have to, in the code you would otherwise write by hand. Every snippet runs against the real crates and the real config surface."
+      lede="The framework makes the decisions a harness needs. The snippets show them in code. Every snippet runs against the real crates and the real config surface."
     />
 
     <div class="grid grid-cols-1 gap-[26px] lg:grid-cols-2">
@@ -183,9 +183,9 @@ const duoBridge: CodeSeg[][] = [
             The framework ships connectors, never UI. A page imports
             <code class="rounded-sm bg-[var(--ink-a07)] px-1 py-0.5 text-[0.92em] text-foreground">client.mjs</code>,
             a zero-dependency module the engine itself serves, and speaks
-            HTTP and WebSocket to localhost. The same session surface answers
-            a browser page, a terminal, and a desktop window, so the
-            frontend can live on the web or on your own infrastructure.
+            HTTP and WebSocket to localhost. The same session surface
+            answers a browser page, a terminal, and a desktop window. Host
+            the frontend on the web, or on your own infrastructure.
             Conveniences for Vue, React and Svelte ride separately, one
             milestone each.
           </p>

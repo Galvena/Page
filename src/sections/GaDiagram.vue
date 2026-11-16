@@ -22,7 +22,7 @@ useReveal(fig, "drawn");
           <figure ref="fig" class="ga-fig m-0">
             <svg
               class="diag"
-              viewBox="0 0 1180 648"
+              viewBox="0 0 1180 580"
               role="img"
               aria-labelledby="gatitle gadesc"
             >
@@ -162,42 +162,6 @@ useReveal(fig, "drawn");
               <text class="pop" x="704" y="506" text-anchor="middle">VAULT</text>
               <text class="sub pop" x="704" y="523" text-anchor="middle">OS keychain · AES-GCM</text>
 
-              <!-- dimension ruler · the ten crates -->
-              <g class="ln">
-                <line class="anim" pathLength="1" style="--i: 23" x1="56" y1="596" x2="1140" y2="596" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="56,596 66,592" fill="none" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="56,596 66,600" fill="none" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="1140,596 1130,592" fill="none" />
-                <polyline class="anim" pathLength="1" style="--i: 23" points="1140,596 1130,600" fill="none" />
-              </g>
-              <text class="tiny pop" x="598" y="580" text-anchor="middle">TEN CRATES · ONE FRAME</text>
-              <g class="ln">
-                <line
-                  v-for="x in [56, 164.4, 272.8, 381.2, 489.6, 598, 706.4, 814.8, 923.2, 1031.6, 1140]"
-                  :key="x"
-                  class="anim"
-                  pathLength="1"
-                  style="--i: 23"
-                  :x1="x"
-                  y1="590"
-                  :x2="x"
-                  y2="602"
-                />
-              </g>
-              <g class="tiny pop">
-                <text
-                  v-for="crate in [
-                    'KERNEL', 'ENGINE', 'BRIDGE', 'COMPAT', 'PROVIDERS',
-                    'SKILLS', 'STORE', 'VAULT', 'STALKER', 'CLI',
-                  ]"
-                  :key="crate"
-                  :x="56 + 108.4 * 0.5 + 108.4 * ['KERNEL', 'ENGINE', 'BRIDGE', 'COMPAT', 'PROVIDERS', 'SKILLS', 'STORE', 'VAULT', 'STALKER', 'CLI'].indexOf(crate)"
-                  y="620"
-                  text-anchor="middle"
-                >
-                  {{ crate }}
-                </text>
-              </g>
             </svg>
             <figcaption
               class="mt-3.5 font-mono text-[11.5px] tracking-[0.08em] text-ink-3"

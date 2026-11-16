@@ -2,11 +2,13 @@
 import HeaderStrip from "@/sections/HeaderStrip.vue";
 import HeroSection from "@/sections/HeroSection.vue";
 import BackingSection from "@/sections/BackingSection.vue";
-import GaDiagram from "@/sections/GaDiagram.vue";
-import FacesSection from "@/sections/FacesSection.vue";
-import FrameFeatures from "@/sections/FrameFeatures.vue";
 import StarterSection from "@/sections/StarterSection.vue";
+import FacesSection from "@/sections/FacesSection.vue";
+import GaDiagram from "@/sections/GaDiagram.vue";
+import CratesSection from "@/sections/CratesSection.vue";
+import FrameFeatures from "@/sections/FrameFeatures.vue";
 import RevisionsSection from "@/sections/RevisionsSection.vue";
+import RulesSection from "@/sections/RulesSection.vue";
 import ClosingSection from "@/sections/ClosingSection.vue";
 import SiteFooter from "@/sections/SiteFooter.vue";
 import { useLenis } from "@/composables/useLenis";
@@ -27,11 +29,13 @@ useLenis();
     <main id="main">
       <HeroSection />
       <BackingSection />
-      <GaDiagram />
-      <FacesSection />
-      <FrameFeatures />
       <StarterSection />
+      <FacesSection />
+      <GaDiagram />
+      <CratesSection />
+      <FrameFeatures />
       <RevisionsSection />
+      <RulesSection />
       <ClosingSection />
     </main>
 
