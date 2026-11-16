@@ -267,7 +267,7 @@ const duoBridge: CodeSeg[][] = [
       </article>
 
       <!-- A7 · the shortcut -->
-      <article :class="`${fcard} col-span-2 grid grid-cols-1 gap-4 lg:col-span-2`">
+      <article :class="`${fcard} grid grid-cols-1 gap-4 lg:col-span-2`">
         <Callout mark="A7" label="the shortcut" />
         <h3 :class="ftitle">The socket dance, one call.</h3>
         <p :class="fbody">
